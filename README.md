@@ -18,7 +18,7 @@ You can download the latest binary version from the [Telerik website](http://www
 
 ###Before starting work on a feature or a fix, please:
 
-* Add a new issue in the [Issues](https://github.com/telerik/Medusa/issues) section or find an existing issue describing the problem.
+* Add a new issue in the [Issues](https://github.com/telerik/JustAssembly/issues) section or find an existing issue describing the problem.
 * Let us know thru the issue comments that you are working on a particular issue so that we can change its status to "In Progress," alert the rest of the community and avoid duplicating efforts.
 * If choosing between more than one issues, please, start working on the one with the higher priority.
 
@@ -36,10 +36,10 @@ JustAssembly uses [JustDecompileEngine](https://github.com/telerik/JustDecompile
 
 ## Roadmap for JustAssembly
 
-For roadmap and milestones, check the [Issues](https://github.com/telerik/Medusa/issues) section.
+For roadmap and milestones, check the [Issues](https://github.com/telerik/JustAssembly/issues) section.
 
 ## Feedback and Suggestions about JustAssembly
 
-If you find a bug or want to suggest a feature, please use the [Issues](https://github.com/telerik/Medusa/issues) section.
+If you find a bug or want to suggest a feature, please use the [Issues](https://github.com/telerik/JustAssembly/issues) section.
 
 For feedback and discussions, please visit the [Telerik Forums](http://www.telerik.com/forums/justassembly).
