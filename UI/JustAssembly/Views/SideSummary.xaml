@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="JustAssembly.Views.SideSummary"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             >
+    <UserControl.Resources>
+        <ControlTemplate x:Key="thumbTemplate">
+            <Rectangle Fill="Transparent" Stroke="Black" StrokeThickness="1" SnapsToDevicePixels="True"/>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
+    <Border x:Name="border" BorderThickness="3 0 3 0" BorderBrush="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Canvas x:Name="canvas" SizeChanged="CanvasSizeChanged" Background="Transparent" PreviewMouseWheel="OnMouseWheel" MinHeight="200" PreviewMouseDown="OnPreviewMouseDown">
+            <Thumb x:Name="viewWindow" DragDelta="OnDragDelta" Canvas.Left="-2" Canvas.Top="0" Template="{StaticResource thumbTemplate}" MinHeight="10"/>
+        </Canvas>
+    </Border>
+</UserControl>

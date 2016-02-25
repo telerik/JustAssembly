@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JustAssembly</RootNamespace>
+    <AssemblyName>JustAssembly</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\DebugBuild\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ReleaseBuild\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>JustAssembly.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\JustAssembly.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Telerik Release Build|AnyCPU'">
+    <OutputPath>..\ReleaseBuild\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\BuildUtilities\JDKey.snk</AssemblyOriginatorKeyFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dragablz">
+      <HintPath>..\..\Binaries\Dragablz.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TreeView">
+      <HintPath>..\..\Binaries\ICSharpCode.TreeView.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\Binaries\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.MefExtensions">
+      <HintPath>..\..\Binaries\Microsoft.Practices.Prism.MefExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="..\..\CompanyAssemblyInfo.cs">
+      <Link>Properties\CompanyAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\DifferenceDecorationBackgroundConverter.cs" />
+    <Compile Include="Converters\ReverseBooleanConverter.cs" />
+    <Compile Include="Extensions\CodeViewerExtensions.cs" />
+    <Compile Include="Infrastructure\Analytics\EmptyAnalyticsMonitorCapabilities.cs" />
+    <Compile Include="Infrastructure\Analytics\EmptyAnalyticsMonitorStatus.cs" />
+    <Compile Include="Infrastructure\Analytics\EmptyAnalyticsService.cs" />
+    <Compile Include="Infrastructure\Analytics\EmptyTimingScope.cs" />
+    <Compile Include="Infrastructure\AssemblyDifferences.cs" />
+    <Compile Include="Infrastructure\CodeViewer\CodeViewer.cs" />
+    <Compile Include="Infrastructure\CodeViewer\DiffBackgroundRenderer.cs" />
+    <Compile Include="Infrastructure\CodeViewer\DiffLineNumberMargin.cs" />
+    <Compile Include="Infrastructure\CodeViewer\ClassificationType.cs" />
+    <Compile Include="Infrastructure\Configuration.cs" />
+    <Compile Include="Dialogs\ErrorMessageBox.cs" />
+    <Compile Include="Dialogs\ErrorMessageWindow.xaml.cs">
+      <DependentUpon>ErrorMessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\IWindowView.cs" />
+    <Compile Include="Dialogs\ToolWindow.cs" />
+    <Compile Include="Dialogs\WindowViewBase.cs" />
+    <Compile Include="DispatcherObjectExt.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\TabExtensions.cs" />
+    <Compile Include="Extensions\TreeListViewExtensions.cs" />
+    <Compile Include="ImagesResourceStrings.cs" />
+    <Compile Include="Interfaces\DecompilationResultsRepository.cs" />
+    <Compile Include="Infrastructure\IDecompilationResultsRepository.cs" />
+    <Compile Include="Infrastructure\SliderCheck.cs" />
+    <Compile Include="Interfaces\BrowserTabSourceItemBase.cs" />
+    <Compile Include="Interfaces\IComparisonSessionModel.cs" />
+    <Compile Include="Interfaces\IOldToNewTupleMap.cs" />
+    <Compile Include="Interfaces\IProgressNotifier.cs" />
+    <Compile Include="MemberMetadata\MemberDefinitionMetadataBase.cs" />
+    <Compile Include="MemberMetadata\MemberMetadata.cs" />
+    <Compile Include="MemberMetadata\MemberMetadataBase.cs" />
+    <Compile Include="MemberMetadata\ModuleMetadata.cs" />
+    <Compile Include="MemberMetadata\TypeMetadata.cs" />
+    <Compile Include="MergeUtilities\AssemblyHelper.cs" />
+    <Compile Include="MergeUtilities\ClrAssemblyFileMergeManager.cs" />
+    <Compile Include="Infrastructure\CodeViewer\Position.cs" />
+    <Compile Include="Infrastructure\Commands.cs" />
+    <Compile Include="Infrastructure\CodeViewer\DecompiledSourceCode.cs" />
+    <Compile Include="Infrastructure\CodeViewer\ICodeViewerResults.cs" />
+    <Compile Include="Interfaces\ITabSourceItem.cs" />
+    <Compile Include="Interfaces\TabKind.cs" />
+    <Compile Include="Interfaces\TabSourceItemBase.cs" />
+    <Compile Include="MergeUtilities\ErrorAssemblyReadingEventArgs.cs" />
+    <Compile Include="MergeUtilities\FolderMergeManager.cs" />
+    <Compile Include="MergeUtilities\MemberMergeManager.cs" />
+    <Compile Include="MergeUtilities\MergeManagerBase.cs" />
+    <Compile Include="MergeUtilities\ModuleManager.cs" />
+    <Compile Include="MergeUtilities\ResourceMergeManager.cs" />
+    <Compile Include="MergeUtilities\TypesMergeManager.cs" />
+    <Compile Include="Nodes\APIDiff\APIDiffExtensions.cs" />
+    <Compile Include="Nodes\APIDiff\APIDiffInfo.cs" />
+    <Compile Include="Nodes\APIDiff\LoadAPIItemsContext.cs" />
+    <Compile Include="Nodes\AssemblyNode.cs" />
+    <Compile Include="ViewModels\BindingProxy.cs" />
+    <Compile Include="Nodes\DefaultResourceNode.cs" />
+    <Compile Include="Nodes\FileGenerated.cs" />
+    <Compile Include="Nodes\FilterSettings.cs" />
+    <Compile Include="Nodes\FolderNode.cs" />
+    <Compile Include="Interfaces\IResourceNode.cs" />
+    <Compile Include="Infrastructure\GeneratedProjectOutputInfo.cs" />
+    <Compile Include="Nodes\ItemNodeBase.cs" />
+    <Compile Include="Nodes\MemberNode.cs" />
+    <Compile Include="Nodes\MemberNodeBase.cs" />
+    <Compile Include="Nodes\ModuleNode.cs" />
+    <Compile Include="Nodes\NamespaceNode.cs" />
+    <Compile Include="Nodes\DifferenceDecoration.cs" />
+    <Compile Include="Nodes\NodeType.cs" />
+    <Compile Include="Nodes\ResourceNode.cs" />
+    <Compile Include="Nodes\TypeNode.cs" />
+    <Compile Include="Nodes\XamlResourceNode.cs" />
+    <Compile Include="TreeListViewRowStyleSelector.cs" />
+    <Compile Include="ViewModels\AssembliesComparisonViewModel.cs" />
+    <Compile Include="ViewModels\AssemblyAttributeTabItem.cs" />
+    <Compile Include="ViewModels\AssemblyBrowseTabItem.cs" />
+    <Compile Include="ViewModels\AssemblyDiffTabItem.cs" />
+    <Compile Include="ViewModels\CodeDiffTabItemBase.cs" />
+    <Compile Include="ViewModels\FolderBrowseTabItem.cs" />
+    <Compile Include="MergeUtilities\OldToNewTupleMap.cs" />
+    <Compile Include="ViewModels\FolderComparisonViewModel.cs" />
+    <Compile Include="ViewModels\NewSessionTabItemTemplateSelector.cs" />
+    <Compile Include="ViewModels\ComparisonSessionViewModelBase.cs" />
+    <Compile Include="ViewModels\NewSessionViewModel.cs" />
+    <Compile Include="Interfaces\IShellViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\TabItemTemplateSelector.cs" />
+    <Compile Include="Views\SideSummary.xaml.cs">
+      <DependentUpon>SideSummary.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dialogs\ErrorMessageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\NewSessionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CallbackLogger.cs" />
+    <Compile Include="Dialogs\NewSessionDialog.xaml.cs">
+      <DependentUpon>NewSessionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JustAssemblyBootstrapper.cs" />
+    <Compile Include="ViewModels\XamlDiffTabItem.cs" />
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\SideSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\JustAssembly.Core\JustAssembly.Core.csproj">
+      <Project>{c83612cd-ad42-4655-98a1-336ce7a65012}</Project>
+      <Name>JustAssembly.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\JustAssembly.DiffAlgorithm\JustAssembly.DiffAlgorithm.csproj">
+      <Project>{529ed979-2760-4808-b609-1cbe6506fb97}</Project>
+      <Name>JustAssembly.DiffAlgorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JustDecompileEngine\Cecil.Decompiler\JustDecompiler.csproj">
+      <Project>{ed1be103-1699-4116-a732-616beb142eb2}</Project>
+      <Name>JustDecompiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JustDecompileEngine\EngineInfrastructure\JustDecompile.EngineInfrastructure.csproj">
+      <Project>{246289a4-53fd-4bb3-923a-08b1d3d905aa}</Project>
+      <Name>JustDecompile.EngineInfrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JustDecompileEngine\JustDecompile.External.JustAssembly\JustDecompile.External.JustAssembly.csproj">
+      <Project>{b97b9235-c5a9-4f00-aa22-d7e88fbbb4f0}</Project>
+      <Name>JustDecompile.External.JustAssembly</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JustDecompileEngine\Mono.Cecil\Mono.Cecil.csproj">
+      <Project>{d68133bd-1e63-496e-9ede-4fbdbf77b486}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tools\JustAssembly.API\JustAssembly.API.csproj">
+      <Project>{fe0ac2d6-6a79-43a0-95d7-0522d25e8199}</Project>
+      <Name>JustAssembly.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
+      <Project>{6c55b776-26d4-4db3-a6ab-87e783b2f3d1}</Project>
+      <Name>ICSharpCode.AvalonEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JustAssembly.SelectorControl\JustAssembly.SelectorControl.csproj">
+      <Project>{4498e5b1-75c7-41cd-85d5-05bb6764f37f}</Project>
+      <Name>JustAssembly.SelectorControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Common\error_big.png" />
+    <Resource Include="Images\Common\error_small.png" />
+    <Resource Include="Images\Common\open.png" />
+    <Resource Include="Images\TreeView\Entity-Assembly.png" />
+    <Resource Include="Images\TreeView\Entity-Class.png" />
+    <Resource Include="Images\TreeView\Entity-Event.png" />
+    <Resource Include="Images\TreeView\Entity-Field.png" />
+    <Resource Include="Images\TreeView\Entity-Folder.png" />
+    <Resource Include="Images\TreeView\Entity-Method.png" />
+    <Resource Include="Images\TreeView\Entity-Namespace.png" />
+    <Resource Include="Images\TreeView\Entity-Property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\JustAssembly.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TreeView\Resources.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

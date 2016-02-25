@@ -1,0 +1,153 @@
+﻿<Window x:Class="JustAssembly.NewSessionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:JustAssembly.ViewModels"
+        xmlns:selectorControl="clr-namespace:JustAssembly.SelectorControl;assembly=JustAssembly.SelectorControl"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        Title="New Comparison Session"
+        SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate x:Key="assembliesBrowseTemplate">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <selectorControl:SelectorControl Margin="0 0 5 0"
+                                                     SelectedItemType="File"
+                                                     FilePath="{Binding OldType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                     Header="Old" />
+
+                    <selectorControl:SelectorControl Grid.Column="1"
+                                                     SelectedItemType="File"
+                                                     FilePath="{Binding NewType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                     Header="New" />
+
+                    <Button Width="25"
+                            Height="25"
+                            Margin="0 10 0 0"
+                            Command="{Binding SwapPathsCommand}"
+                            HorizontalAlignment="Right"
+                            ToolTip="Swap paths">
+                        <Button.Content>
+                            <StackPanel>
+                                <Path Width="12"
+                                      Height="6"
+                                      Data="F1 M 30.0901,25.1254L 42.6528,12.5626L 30.0901,0L 21.8048,0L 31.3595,9.55469L 3.11679,9.55469L 3.11679,15.636L 31.2928,15.636L 21.7888,25.1414L 30.0901,25.1254 Z "
+                                      Fill="#FF000000"
+                                      Stretch="Fill" />
+                                <Path Width="12"
+                                      Height="6"
+                                      Margin="0 2 0 0"
+                                      Data="F1 M 12.564,29.2346L 0,41.7974L 12.5627,54.36L 20.848,54.36L 11.2933,44.8053L 39.536,44.8053L 39.536,38.724L 11.36,38.724L 20.864,29.2186L 12.564,29.2346 Z "
+                                      Fill="#FF000000"
+                                      Stretch="Fill" />
+                            </StackPanel>
+                        </Button.Content>
+                        <Button.RenderTransform>
+                            <TranslateTransform X="10" />
+                        </Button.RenderTransform>
+                    </Button>
+
+                    <Button Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Width="80"
+                            Margin="0 15 15 0"
+                            IsEnabled="{Binding IsLoadEnabled}"
+                            HorizontalAlignment="Right"
+                            Click="OnLoadClick"
+                            Content="Load"
+                            Padding="5 3" />
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="foldersBrowseTemplate">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <selectorControl:SelectorControl SelectedItemType="Folder"
+                                                     Margin="0 0 5 0"
+                                                     FilePath="{Binding OldType, Mode=TwoWay}"
+                                                     Header="Old" />
+
+                    <selectorControl:SelectorControl Grid.Column="1"
+                                                     SelectedItemType="Folder"
+                                                     FilePath="{Binding NewType, Mode=TwoWay}"
+                                                     Header="New" />
+
+                    <Button Width="25"
+                            Height="25"
+                            Margin="0 10 0 0"
+                            Command="{Binding SwapPathsCommand}"
+                            HorizontalAlignment="Right"
+                            ToolTip="Swap paths">
+                        <Button.Content>
+                            <StackPanel>
+                                <Path Width="12"
+                                      Height="6"
+                                      Data="F1 M 30.0901,25.1254L 42.6528,12.5626L 30.0901,0L 21.8048,0L 31.3595,9.55469L 3.11679,9.55469L 3.11679,15.636L 31.2928,15.636L 21.7888,25.1414L 30.0901,25.1254 Z "
+                                      Fill="#FF000000"
+                                      Stretch="Fill" />
+                                <Path Width="12"
+                                      Height="6"
+                                      Margin="0 2 0 0"
+                                      Data="F1 M 12.564,29.2346L 0,41.7974L 12.5627,54.36L 20.848,54.36L 11.2933,44.8053L 39.536,44.8053L 39.536,38.724L 11.36,38.724L 20.864,29.2186L 12.564,29.2346 Z "
+                                      Fill="#FF000000"
+                                      Stretch="Fill" />
+                            </StackPanel>
+                        </Button.Content>
+                        <Button.RenderTransform>
+                            <TranslateTransform X="10" />
+                        </Button.RenderTransform>
+                    </Button>
+
+                    <Button Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Width="80"
+                            Margin="0 15 15 0"
+                            HorizontalAlignment="Right"
+                            IsEnabled="{Binding IsLoadEnabled}"
+                            Click="OnLoadClick"
+                            Content="Load"
+                            Padding="5 3" />
+                </Grid>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Margin="2">
+        <dragablz:TabablzControl SelectedItem="{Binding SelectedSession, Mode=TwoWay}"
+                                 ItemsSource="{Binding Tabs}"
+                                 HeaderMemberPath="Header"
+                                 ItemContainerStyle="{StaticResource TrapezoidDragableTabItemStyle}"
+                                 AdjacentHeaderItemOffset="-10"
+                                 FixedHeaderCount="2">
+            <dragablz:TabablzControl.ContentTemplateSelector>
+                <local:NewSessionTabItemTemplateSelector AssembliesBrowseTemplate="{StaticResource assembliesBrowseTemplate}" 
+                                                         DirectoriesBrowseTemplate="{StaticResource foldersBrowseTemplate}"/>
+            </dragablz:TabablzControl.ContentTemplateSelector>
+        </dragablz:TabablzControl>
+    </Grid>
+</Window>

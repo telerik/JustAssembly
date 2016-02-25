@@ -1,0 +1,22 @@
+<Assembly Name="SimpleAPIDiffTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DiffType="Modified">
+  <Module Name="SimpleAPIDiffTest.dll" DiffType="Modified">
+    <Type Name="SimpleAPIDiffTest.APITestClass" DiffType="Modified">
+      <DeclarationDiffs>
+        <CustomAttribute Name="System.ObsoleteAttribute::.ctor()" DiffType="New" />
+      </DeclarationDiffs>
+      <Method Name="ProtectedMethod()" DiffType="Modified">
+        <DeclarationDiffs>
+          <DiffItem DiffType="Modified">Member is less visible.</DiffItem>
+        </DeclarationDiffs>
+      </Method>
+      <Method Name="SomePublicMethod()" DiffType="Modified">
+        <DeclarationDiffs>
+          <CustomAttribute Name="System.LoaderOptimizationAttribute::.ctor(System.LoaderOptimization)" DiffType="Deleted" />
+        </DeclarationDiffs>
+      </Method>
+      <Method Name="SomePublicMethod(Double)" DiffType="New" />
+      <Method Name="SomePublicMethod(Int32)" DiffType="Deleted" />
+      <Method Name="UselessPublicMethod()" DiffType="Deleted" />
+    </Type>
+  </Module>
+</Assembly>

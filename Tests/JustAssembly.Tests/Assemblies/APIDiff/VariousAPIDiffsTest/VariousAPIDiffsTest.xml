@@ -1,0 +1,54 @@
+<Assembly Name="VariousAPIDiffsTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DiffType="Modified">
+  <Module Name="VariousAPIDiffsTest.dll" DiffType="Modified">
+    <DeclarationDiffs>
+      <AssemblyReference Name="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DiffType="Deleted" />
+    </DeclarationDiffs>
+    <Type Name="VariousAPIDiffsTest.TestClass" DiffType="Modified">
+      <Field Name="protectedField" DiffType="Modified">
+        <DeclarationDiffs>
+          <DiffItem DiffType="Modified">Member is less visible.</DiffItem>
+          <DiffItem DiffType="Modified">Member type changed from Int32 to Double.</DiffItem>
+        </DeclarationDiffs>
+      </Field>
+      <Field Name="staticField" DiffType="Modified">
+        <DeclarationDiffs>
+          <DiffItem DiffType="Modified">Member is less visible.</DiffItem>
+          <DiffItem DiffType="Modified">Member changed to instance.</DiffItem>
+        </DeclarationDiffs>
+      </Field>
+      <Property Name="FieldProperty" DiffType="Modified">
+        <DeclarationDiffs>
+          <DiffItem DiffType="Modified">Member type changed from Int32 to Double.</DiffItem>
+        </DeclarationDiffs>
+        <Method Name="set" DiffType="Deleted" />
+      </Property>
+      <Method Name=".ctor(Double)" DiffType="New" />
+      <Method Name=".ctor(Int32)" DiffType="Deleted" />
+      <Method Name="SomeMethod(Double)" DiffType="Modified">
+        <DeclarationDiffs>
+          <DiffItem DiffType="Modified">Method changed to non-virtual.</DiffItem>
+          <DiffItem DiffType="Modified">Member changed to static.</DiffItem>
+          <DiffItem DiffType="Modified">Member type changed from Int32 to Double.</DiffItem>
+          <DiffItem DiffType="Modified">Parameter name changed from a to b.</DiffItem>
+        </DeclarationDiffs>
+      </Method>
+      <Event Name="SomeEvent" DiffType="Modified">
+        <DeclarationDiffs>
+          <CustomAttribute Name="System.ObsoleteAttribute::.ctor()" DiffType="Deleted" />
+        </DeclarationDiffs>
+        <Method Name="add" DiffType="Modified">
+          <DeclarationDiffs>
+            <CustomAttribute Name="System.STAThreadAttribute::.ctor()" DiffType="New" />
+            <DiffItem DiffType="Modified">Method changed to virtual.</DiffItem>
+          </DeclarationDiffs>
+        </Method>
+        <Method Name="remove" DiffType="Modified">
+          <DeclarationDiffs>
+            <CustomAttribute Name="System.STAThreadAttribute::.ctor()" DiffType="Deleted" />
+            <DiffItem DiffType="Modified">Method changed to virtual.</DiffItem>
+          </DeclarationDiffs>
+        </Method>
+      </Event>
+    </Type>
+  </Module>
+</Assembly>

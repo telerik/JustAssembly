@@ -1,0 +1,322 @@
+﻿<Application x:Class="JustAssembly.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:infrastructure="clr-namespace:JustAssembly.Infrastructure"
+             xmlns:listViewNodes="clr-namespace:JustAssembly"
+             xmlns:local="clr-namespace:JustAssembly.ViewModels"
+             xmlns:localExtensions="clr-namespace:JustAssembly.Extensions"
+             xmlns:localViews="clr-namespace:JustAssembly.Views"
+             xmlns:mscorlib="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:sharpListView="http://icsharpcode.net/sharpdevelop/treeview"
+             xmlns:converters="clr-namespace:JustAssembly.Converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GridViewHeader" TargetType="{x:Type GridViewColumnHeader}">
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style x:Key="SliderCheckerStyle" TargetType="{x:Type listViewNodes:SliderCheck}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type listViewNodes:SliderCheck}">
+                            <ControlTemplate.Resources>
+                                <Storyboard x:Key="OnChecking">
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="slider" 
+                                                                   Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                        <SplineDoubleKeyFrame KeyTime="00:00:.05" Value="65" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                                <Storyboard x:Key="OnUnchecking">
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="slider" 
+                                                                   Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                        <SplineDoubleKeyFrame KeyTime="00:00:.05" Value="0" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </ControlTemplate.Resources>
+
+                            <DockPanel Background="Transparent" 
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  DockPanel.Dock="Top"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                                <Grid Width="163" DockPanel.Dock="Bottom" 
+                                                  Margin="0 2 0 0">
+                                    <Border x:Name="BackgroundBorder"
+                                            Background="{x:Null}"
+                                            BorderBrush="#D6D4D4"
+                                            BorderThickness="1"
+                                            CornerRadius="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Margin="2,0,0,1"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       Text="{TemplateBinding HideText}"
+                                                       TextWrapping="Wrap" />
+
+                                            <TextBlock Grid.Column="1"
+                                                       Margin="2,0,3,1"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       Text="{TemplateBinding ShowText}"
+                                                       TextWrapping="Wrap" />
+                                        </Grid>
+                                    </Border>
+                                    <Border x:Name="slider"
+                                            Width="65"
+                                            Height="18"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Background="White"
+                                            CornerRadius="1"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                <SkewTransform AngleX="0" AngleY="0" />
+                                                <RotateTransform Angle="0" />
+                                                <TranslateTransform X="0" Y="0" />
+                                            </TransformGroup>
+                                        </Border.RenderTransform>
+                                    </Border>
+                                </Grid>
+                            </DockPanel>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard x:Name="OnUnchecking_BeginStoryboard" Storyboard="{StaticResource OnUnchecking}" />
+                                    </Trigger.ExitActions>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard x:Name="OnChecking_BeginStoryboard" Storyboard="{StaticResource OnChecking}" />
+                                    </Trigger.EnterActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <DataTemplate x:Key="TabItemContentTemplate">
+                <Border BorderBrush="White" BorderThickness="5">
+                    <Grid>
+                        <Grid.Resources>
+                            <ResourceDictionary>
+                                <converters:ReverseBooleanConverter x:Key="ReverseConverter" />
+                                <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+                            </ResourceDictionary>
+                        </Grid.Resources>
+                        
+                        <ContentControl Content="{Binding}"
+                                        IsEnabled="{Binding IsBusy, Converter={StaticResource ReverseConverter}}">
+                            
+                            <ContentControl.ContentTemplateSelector>
+                                <local:TabItemTemplateSelector>
+                                    <local:TabItemTemplateSelector.AssemblyBrowseTemplate>
+                                        <DataTemplate>
+                                            <sharpListView:SharpTreeView ShowLines="False"
+                                                                         AllowDrop="False"
+                                                                         AllowDropOrder="False"
+                                                                         ShowAlternation="False"
+                                                                         Root="{Binding Root}"
+                                                                         ShowRoot="False"
+                                                                         ShowRootExpander="False"
+                                                                         FontSize="14"
+                                                                         HorizontalAlignment="Stretch"
+                                                                         ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                                <ListView.Resources>
+                                                    <local:BindingProxy x:Key="proxy" Data="{Binding}" />
+                                                    <converters:DifferenceDecorationBackgroundConverter x:Key="differenceDecorationBackgroundConverter" />
+                                                </ListView.Resources>
+
+                                                <ListView.View>
+                                                    <sharpListView:SharpGridView AllowsColumnReorder="False">
+                                                        <GridView.Columns>
+                                                            <GridViewColumn HeaderContainerStyle="{StaticResource GridViewHeader}"
+                                                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=sharpListView:SharpTreeView}}">
+
+                                                                <GridViewColumn.HeaderTemplate>
+                                                                    <DataTemplate>
+                                                                        <StackPanel Orientation="Horizontal" Margin="3">
+                                                                            <CheckBox VerticalAlignment="Center"
+                                                                                        Margin="5 0 0 0"
+                                                                                        IsChecked="{Binding Data.ShowAllUnmodified, Mode=TwoWay, Source={StaticResource proxy}}" />
+
+                                                                            <TextBlock Text="Show Unmodified"
+                                                                                        HorizontalAlignment="Left"
+                                                                                        Margin="5 0 0 0"
+                                                                                        VerticalAlignment="Center" />
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </GridViewColumn.HeaderTemplate>
+
+                                                                <GridViewColumn.CellTemplate>
+                                                                    <DataTemplate>
+                                                                        <Border Width="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=GridViewRowPresenter}}"
+                                                                                Background="{Binding DifferenceDecoration, Converter={StaticResource differenceDecorationBackgroundConverter}}"
+                                                                                localExtensions:TreeListViewExtensions.DoubleClickCommand="{Binding DataContext.MouseDoubleSelectedCommand, RelativeSource={RelativeSource AncestorType=Window}}">
+                                                                            <StackPanel Orientation="Horizontal">
+                                                                                <TextBlock VerticalAlignment="Stretch"
+                                                                                        HorizontalAlignment="Stretch"
+                                                                                        TextAlignment="Center"
+                                                                                        FontSize="16"
+                                                                                        FontWeight="ExtraBold">
+                                                                                    <TextBlock.Style>
+                                                                                        <Style TargetType="TextBlock">
+                                                                                            <Setter Property="Visibility" Value="Hidden" />
+                                                                                            <Setter Property="Width" Value="30" />
+                                                                                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                                                                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                                                                                            <Style.Triggers>
+                                                                                                <DataTrigger Binding="{Binding DifferenceDecoration}" Value="Added">
+                                                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                                                    <Setter Property="Foreground" Value="Green" />
+                                                                                                    <Setter Property="Text" Value="+" />
+                                                                                                </DataTrigger>
+                                                                                                <DataTrigger Binding="{Binding DifferenceDecoration}" Value="Modified">
+                                                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                                                    <Setter Property="Foreground" Value="Blue" />
+                                                                                                    <Setter Property="Text" Value="~" />
+                                                                                                </DataTrigger>
+                                                                                                <DataTrigger Binding="{Binding DifferenceDecoration}" Value="Deleted">
+                                                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                                                    <Setter Property="Text" Value="-" />
+                                                                                                    <Setter Property="Foreground" Value="Red" />
+                                                                                                </DataTrigger>
+                                                                                            </Style.Triggers>
+                                                                                        </Style>
+                                                                                    </TextBlock.Style>
+                                                                                </TextBlock>
+                                                                                <sharpListView:SharpTreeNodeView Margin="3"
+                                                                                                                 Foreground="Black" />
+                                                                            </StackPanel>
+                                                                        </Border>
+                                                                    </DataTemplate>
+                                                                </GridViewColumn.CellTemplate>
+
+                                                            </GridViewColumn>
+                                                        </GridView.Columns>
+                                                    </sharpListView:SharpGridView>
+                                                </ListView.View>
+                                            </sharpListView:SharpTreeView>
+                                        </DataTemplate>
+                                    </local:TabItemTemplateSelector.AssemblyBrowseTemplate>
+
+                                    <local:TabItemTemplateSelector.JustAssemblyTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="46"/>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <localViews:CodeViewer Grid.Column="1"
+                                                                             SyntaxHighlighting="C#"
+                                                                             IsReadOnly="True"
+                                                                             SourceCode="{Binding LeftSourceCode}"
+                                                                             BackgroundRenderer="{Binding LeftSourceCode.BackgroundRenderer}"
+                                                                             ShowLineNumbers="True"
+                                                                             VerticalOffset="{Binding VerticalOffset, Mode=TwoWay}"
+                                                                             VerticalScrollBarVisibility="Hidden"
+                                                                             HorizontalOffsetPercent="{Binding HorizontalOffsetPercent, Mode=TwoWay}"
+                                                                             VisibleLines ="{Binding VisibleLines, Mode=TwoWay}"
+                                                                             ScrollingLimit="{Binding ScrollingLimit, Mode=TwoWay}"
+                                                                             FontSize="{Binding FontSize, Mode=TwoWay}" />
+
+                                                <GridSplitter Grid.Column="2"
+                                                              Width="6"
+                                                              HorizontalAlignment="Center"
+                                                              VerticalAlignment="Stretch" />
+
+                                                <localViews:CodeViewer Grid.Column="3"
+                                                                             SyntaxHighlighting="C#"
+                                                                             IsReadOnly="True"
+                                                                             SourceCode="{Binding RightSourceCode}"
+                                                                             BackgroundRenderer="{Binding RightSourceCode.BackgroundRenderer}"
+                                                                             ShowLineNumbers="True"
+                                                                             VerticalOffset="{Binding VerticalOffset, Mode=TwoWay}"
+                                                                             HorizontalOffsetPercent="{Binding HorizontalOffsetPercent, Mode=TwoWay}"
+                                                                             VisibleLines ="{Binding VisibleLines, Mode=TwoWay}"
+                                                                             ScrollingLimit="{Binding ScrollingLimit, Mode=TwoWay}"
+                                                                             FontSize="{Binding FontSize, Mode=TwoWay}" />
+
+                                                <localViews:SideSummary Grid.Column="0" 
+                                                                        LeftSourceCode="{Binding LeftSourceCode}"
+                                                                        RightSourceCode="{Binding RightSourceCode}"
+                                                                        VerticalOffset="{Binding VerticalOffset,Mode=TwoWay}"
+                                                                        Height="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                                                        AncestorType=UserControl,
+                                                                                                                        AncestorLevel=1},
+                                                                                         Path=ActualHeight}"
+                                                                        Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                                                        AncestorType=UserControl,
+                                                                                                                        AncestorLevel=1},
+                                                                                         Path=ActualWidth}"
+                                                                        VisibleLines ="{Binding VisibleLines}"
+                                                                        ScrollingLimit="{Binding ScrollingLimit}"/>
+
+                                            </Grid>
+                                        </DataTemplate>
+                                    </local:TabItemTemplateSelector.JustAssemblyTemplate>
+                                </local:TabItemTemplateSelector>
+                            </ContentControl.ContentTemplateSelector>
+                            
+                        </ContentControl>
+                        
+                        <Grid Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <StackPanel Orientation="Vertical"
+                                        Grid.Row="1"
+                                        Grid.Column="1">
+                                
+                                <TextBlock Text="{Binding LoadingMessage}"
+                                           Margin="0 0 0 5"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center" />
+                                
+                                <ProgressBar Width="150"
+                                             Height="20"
+                                             Value="{Binding Progress}"
+                                             IsIndeterminate="{Binding IsIndeterminate}"
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Center" />
+                                
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

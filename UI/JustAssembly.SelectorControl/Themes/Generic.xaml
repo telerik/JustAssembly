@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:JustAssembly.SelectorControl">
+    
+    <Style TargetType="local:SelectorControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:SelectorControl">
+                    <Grid MaxHeight="120">
+                        <GroupBox Header="{TemplateBinding Header}">
+                            <StackPanel Margin="10" Orientation="Horizontal">
+                                <TextBox Width="400" Text="{Binding FilePath, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" />
+
+                                <Button Margin="5 0 0 0"
+                                        Width="80"
+                                        Command="{TemplateBinding BrowseCommand}"
+                                        Content="Browse"
+                                        Padding="5 3" />
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

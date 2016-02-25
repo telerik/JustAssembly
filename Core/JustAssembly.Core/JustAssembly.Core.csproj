@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C83612CD-AD42-4655-98A1-336CE7A65012}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JustAssembly.Core</RootNamespace>
+    <AssemblyName>JustAssembly.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Telerik Release Build|AnyCPU'">
+    <OutputPath>bin\Telerik Release Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\BuildUtilities\JDKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CompanyAssemblyInfo.cs">
+      <Link>Properties\CompanyAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="APIDiffHelper.cs" />
+    <Compile Include="Comparers\Accessors\AddAccessorComparer.cs" />
+    <Compile Include="Comparers\Accessors\GetAccessorComparer.cs" />
+    <Compile Include="Comparers\Accessors\RemoveAccessorComparer.cs" />
+    <Compile Include="Comparers\Accessors\SetAccessorComparer.cs" />
+    <Compile Include="Comparers\AssemblyComparer.cs" />
+    <Compile Include="Comparers\Accessors\BaseAccessorComparer.cs" />
+    <Compile Include="Comparers\CustomAttributeComparer.cs" />
+    <Compile Include="Comparers\BaseDiffComparer.cs" />
+    <Compile Include="Comparers\EventComparer.cs" />
+    <Compile Include="Comparers\FieldComparer.cs" />
+    <Compile Include="Comparers\MethodComparer.cs" />
+    <Compile Include="Comparers\ModuleComparer.cs" />
+    <Compile Include="Comparers\PropertyComparer.cs" />
+    <Compile Include="Comparers\ReferenceComparer.cs" />
+    <Compile Include="Comparers\TypeComparer.cs" />
+    <Compile Include="Comparers\VisibilityComparer.cs" />
+    <Compile Include="DiffItems\Assemblies\AssemblyDiffItem.cs" />
+    <Compile Include="DiffItems\Attributes\CustomAttributeDiffItem.cs" />
+    <Compile Include="DiffItems\BaseMemberDiffItem.cs" />
+    <Compile Include="DiffItems\Common\MemberTypeDiffItem.cs" />
+    <Compile Include="DiffItems\Common\VisibilityChangedDiffItem.cs" />
+    <Compile Include="DiffType.cs" />
+    <Compile Include="DiffItems\Events\AddAccessorDiffItem.cs" />
+    <Compile Include="DiffItems\Events\EventDiffItem.cs" />
+    <Compile Include="DiffItems\Events\RemoveAccessorDiffItem.cs" />
+    <Compile Include="DiffItems\Fields\FieldDiffItem.cs" />
+    <Compile Include="Extensions\MemberDefinitionExtensions.cs" />
+    <Compile Include="Extensions\VisibilityDefinitionExtensions.cs" />
+    <Compile Include="IDiffItem.cs" />
+    <Compile Include="DiffItems\BaseDiffItem.cs" />
+    <Compile Include="DiffItems\Methods\MethodDiffItem.cs" />
+    <Compile Include="DiffItems\Methods\ParameterDiffItem.cs" />
+    <Compile Include="DiffItems\Common\StaticFlagChangedDiffItem.cs" />
+    <Compile Include="DiffItems\Methods\VirtualFlagChangedDiffItem.cs" />
+    <Compile Include="DiffItems\Properties\GetAccessorDiffItem.cs" />
+    <Compile Include="DiffItems\Properties\PropertyDiffItem.cs" />
+    <Compile Include="DiffItems\Properties\SetAccessorDiffItem.cs" />
+    <Compile Include="DiffItems\References\AssemblyReferenceDiffItem.cs" />
+    <Compile Include="DiffItems\Modules\ModuleDiffItem.cs" />
+    <Compile Include="DiffItems\Types\TypeDiffItem.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\MethodReferenceExtensions.cs" />
+    <Compile Include="IMetadataDiffItem.cs" />
+    <Compile Include="MetadataType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\JustDecompileEngine\JustDecompile.External.JustAssembly\JustDecompile.External.JustAssembly.csproj">
+      <Project>{b97b9235-c5a9-4f00-aa22-d7e88fbbb4f0}</Project>
+      <Name>JustDecompile.External.JustAssembly</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JustDecompileEngine\Mono.Cecil\Mono.Cecil.csproj">
+      <Project>{d68133bd-1e63-496e-9ede-4fbdbf77b486}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,164 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F9550310-3D00-4134-9155-2C56F58EF1DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly", "UI\JustAssembly\JustAssembly.csproj", "{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{84FE8525-5BA5-499A-A555-624168D7E447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.Tests", "Tests\JustAssembly.Tests\JustAssembly.Tests.csproj", "{8739F83C-EF11-4123-A649-940BA2C323CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AC22ACE4-84E5-4A0C-AA56-46F35B6121E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.DiffAlgorithm", "Core\JustAssembly.DiffAlgorithm\JustAssembly.DiffAlgorithm.csproj", "{529ED979-2760-4808-B609-1CBE6506FB97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.Core", "Core\JustAssembly.Core\JustAssembly.Core.csproj", "{C83612CD-AD42-4655-98A1-336CE7A65012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.AvalonEdit", "UI\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj", "{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{0366A1B6-2A66-41CA-A2C6-79F27ABD4B91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.API", "Tools\JustAssembly.API\JustAssembly.API.csproj", "{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.SelectorControl", "UI\JustAssembly.SelectorControl\JustAssembly.SelectorControl.csproj", "{4498E5B1-75C7-41CD-85D5-05BB6764F37F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JustDecompileEngine", "JustDecompileEngine", "{9E8BF823-5ED0-42C9-B662-2207FE0A1D87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustDecompile.External.JustAssembly", "JustDecompileEngine\JustDecompile.External.JustAssembly\JustDecompile.External.JustAssembly.csproj", "{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustDecompiler", "JustDecompileEngine\Cecil.Decompiler\JustDecompiler.csproj", "{ED1BE103-1699-4116-A732-616BEB142EB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustDecompile.EngineInfrastructure", "JustDecompileEngine\EngineInfrastructure\JustDecompile.EngineInfrastructure.csproj", "{246289A4-53FD-4BB3-923A-08B1D3D905AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Cecil", "JustDecompileEngine\Mono.Cecil\Mono.Cecil.csproj", "{D68133BD-1E63-496E-9EDE-4FBDBF77B486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.MSBuildProjectBuilder", "JustDecompileEngine\MSBuildProjectCreator\Tools.MSBuildProjectBuilder.csproj", "{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Cecil.Mdb", "JustDecompileEngine\Mono.Cecil\symbols\mdb\Mono.Cecil.Mdb.csproj", "{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Cecil.Pdb", "JustDecompileEngine\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb.csproj", "{63E6915C-7EA4-4D76-AB28-0D7191EEA626}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cecil", "Cecil", "{12B3366B-5EC3-4E5C-8C98-DB4AF17818C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Decompiler", "Decompiler", "{AF3A2728-8649-4971-88D2-1D12090DD594}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{80435433-1C6C-4744-BDFA-62CA071DDB63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Telerik Release Build|Any CPU = Telerik Release Build|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}.Telerik Release Build|Any CPU.ActiveCfg = Telerik Release Build|Any CPU
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84}.Telerik Release Build|Any CPU.Build.0 = Telerik Release Build|Any CPU
+		{8739F83C-EF11-4123-A649-940BA2C323CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8739F83C-EF11-4123-A649-940BA2C323CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8739F83C-EF11-4123-A649-940BA2C323CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8739F83C-EF11-4123-A649-940BA2C323CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8739F83C-EF11-4123-A649-940BA2C323CA}.Telerik Release Build|Any CPU.ActiveCfg = Release|Any CPU
+		{8739F83C-EF11-4123-A649-940BA2C323CA}.Telerik Release Build|Any CPU.Build.0 = Release|Any CPU
+		{529ED979-2760-4808-B609-1CBE6506FB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529ED979-2760-4808-B609-1CBE6506FB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529ED979-2760-4808-B609-1CBE6506FB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529ED979-2760-4808-B609-1CBE6506FB97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529ED979-2760-4808-B609-1CBE6506FB97}.Telerik Release Build|Any CPU.ActiveCfg = Telerik Release Build|Any CPU
+		{529ED979-2760-4808-B609-1CBE6506FB97}.Telerik Release Build|Any CPU.Build.0 = Telerik Release Build|Any CPU
+		{C83612CD-AD42-4655-98A1-336CE7A65012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83612CD-AD42-4655-98A1-336CE7A65012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83612CD-AD42-4655-98A1-336CE7A65012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83612CD-AD42-4655-98A1-336CE7A65012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83612CD-AD42-4655-98A1-336CE7A65012}.Telerik Release Build|Any CPU.ActiveCfg = Telerik Release Build|Any CPU
+		{C83612CD-AD42-4655-98A1-336CE7A65012}.Telerik Release Build|Any CPU.Build.0 = Telerik Release Build|Any CPU
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Debug|Any CPU.ActiveCfg = Debug|Net40
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Debug|Any CPU.Build.0 = Debug|Net40
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Release|Any CPU.ActiveCfg = Release|Net40
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Release|Any CPU.Build.0 = Release|Net40
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Telerik Release Build|Any CPU.ActiveCfg = Release|Net40
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}.Telerik Release Build|Any CPU.Build.0 = Release|Net40
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}.Telerik Release Build|Any CPU.ActiveCfg = Telerik Release Build|Any CPU
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199}.Telerik Release Build|Any CPU.Build.0 = Telerik Release Build|Any CPU
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F}.Telerik Release Build|Any CPU.ActiveCfg = Telerik Release Build|Any CPU
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F}.Telerik Release Build|Any CPU.Build.0 = Telerik Release Build|Any CPU
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}.Telerik Release Build|Any CPU.ActiveCfg = Release Server|Any CPU
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0}.Telerik Release Build|Any CPU.Build.0 = Release Server|Any CPU
+		{ED1BE103-1699-4116-A732-616BEB142EB2}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{ED1BE103-1699-4116-A732-616BEB142EB2}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{ED1BE103-1699-4116-A732-616BEB142EB2}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{ED1BE103-1699-4116-A732-616BEB142EB2}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{ED1BE103-1699-4116-A732-616BEB142EB2}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{ED1BE103-1699-4116-A732-616BEB142EB2}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0AE2BB33-482B-443F-82CF-8FC9AECF1A84} = {F9550310-3D00-4134-9155-2C56F58EF1DB}
+		{8739F83C-EF11-4123-A649-940BA2C323CA} = {84FE8525-5BA5-499A-A555-624168D7E447}
+		{529ED979-2760-4808-B609-1CBE6506FB97} = {AC22ACE4-84E5-4A0C-AA56-46F35B6121E7}
+		{C83612CD-AD42-4655-98A1-336CE7A65012} = {AC22ACE4-84E5-4A0C-AA56-46F35B6121E7}
+		{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1} = {F9550310-3D00-4134-9155-2C56F58EF1DB}
+		{FE0AC2D6-6A79-43A0-95D7-0522D25E8199} = {0366A1B6-2A66-41CA-A2C6-79F27ABD4B91}
+		{4498E5B1-75C7-41CD-85D5-05BB6764F37F} = {F9550310-3D00-4134-9155-2C56F58EF1DB}
+		{B97B9235-C5A9-4F00-AA22-D7E88FBBB4F0} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
+		{ED1BE103-1699-4116-A732-616BEB142EB2} = {AF3A2728-8649-4971-88D2-1D12090DD594}
+		{246289A4-53FD-4BB3-923A-08B1D3D905AA} = {AF3A2728-8649-4971-88D2-1D12090DD594}
+		{D68133BD-1E63-496E-9EDE-4FBDBF77B486} = {12B3366B-5EC3-4E5C-8C98-DB4AF17818C0}
+		{F7BBB403-7142-4F8D-8E65-5ABA94502D3D} = {80435433-1C6C-4744-BDFA-62CA071DDB63}
+		{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD} = {12B3366B-5EC3-4E5C-8C98-DB4AF17818C0}
+		{63E6915C-7EA4-4D76-AB28-0D7191EEA626} = {12B3366B-5EC3-4E5C-8C98-DB4AF17818C0}
+		{12B3366B-5EC3-4E5C-8C98-DB4AF17818C0} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
+		{AF3A2728-8649-4971-88D2-1D12090DD594} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
+		{80435433-1C6C-4744-BDFA-62CA071DDB63} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,94 @@
+﻿<Window x:Class="JustAssembly.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:JustAssembly.ViewModels"
+        xmlns:localExtensions="clr-namespace:JustAssembly.Extensions"
+        xmlns:localViews="clr-namespace:JustAssembly.Views"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:infrastructure="clr-namespace:JustAssembly.Infrastructure"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        Title="Telerik JustAssembly"
+        Width="1400"
+        Height="800"
+        MinWidth="630"
+        MinHeight="360"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="dragablz:DragablzItem" BasedOn="{StaticResource TrapezoidDragableTabItemStyle}" x:Key="TabItemHeaderStyle">
+                <Setter Property="localExtensions:TabExtensions.RoutedEventCommand" Value="UIElement.MouseDown" />
+                <Setter Property="localExtensions:TabExtensions.AttachedCommand" Value="{Binding DataContext.TabCloseCommand, RelativeSource={RelativeSource AncestorType=Window}}" />
+                <Setter Property="ToolTip" Value="{Binding ToolTip}" />
+                <Setter Property="ContextMenu">
+                    <Setter.Value>
+                        <ContextMenu>
+                            <MenuItem Command="{x:Static infrastructure:Commands.TabItemCloseCommand}" CommandParameter="{Binding}">
+                                <MenuItem.Header>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Width="120" Text="Close" />
+
+                                        <TextBlock Grid.Column="1" Text="Ctrl + F4" />
+                                    </Grid>
+                                </MenuItem.Header>
+                            </MenuItem>
+
+                            <MenuItem Command="{x:Static infrastructure:Commands.CloseAllButThisCommand}"
+                                      CommandParameter="{Binding}"
+                                      Header="Close All But This" />
+
+                            <MenuItem Command="{x:Static infrastructure:Commands.CloseAllCommand}"
+                                      CommandParameter="{Binding}" 
+                                      Header="Close All" />
+                        </ContextMenu>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Menu Grid.Row="0">
+                <MenuItem Command="{Binding OpenNewSessionCommand}">
+                    <MenuItem.Icon>
+                        <Image Width="16"
+                               Height="16"
+                               Margin="2 0 0 0"
+                               Source="pack://application:,,,/JustAssembly;component/Images/Common/open.png" />
+                    </MenuItem.Icon>
+                    <MenuItem.Header>
+                        <TextBlock Margin="-5 0 0 0" Text="Open" />
+                    </MenuItem.Header>
+                </MenuItem>
+            </Menu>
+
+            <dragablz:TabablzControl Grid.Row="1"
+                                     ItemsSource="{Binding Tabs}"
+                                     HeaderMemberPath="Header"
+                                     ShowDefaultCloseButton="True"
+                                     ItemContainerStyle="{StaticResource TabItemHeaderStyle}"
+                                     ContentTemplate="{StaticResource TabItemContentTemplate}"
+                                     SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}"
+                                     localExtensions:TabExtensions.CloseTabOnAltF4="True"
+                                     localExtensions:TabExtensions.RemovedCurrentItemCommand="{Binding TabCloseCommand}"
+                                     AdjacentHeaderItemOffset="-10" />
+        </Grid>
+    </Grid>
+</Window>
+
+
