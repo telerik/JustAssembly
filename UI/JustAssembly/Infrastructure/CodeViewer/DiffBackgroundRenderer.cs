@@ -50,11 +50,11 @@ namespace JustAssembly.Infrastructure.CodeViewer
             switch (type)
             {
                 case ClassificationType.ModifiedLine:
-                    return Colors.LightBlue;
+                    return Configuration.ModifiedColor;
                 case ClassificationType.InsertedLine:
-                    return Colors.LightGreen;
+                    return Configuration.AddedColor;
                 case ClassificationType.DeletedLine:
-                    return Colors.Red;
+                    return Configuration.DeletedColor;
                 case ClassificationType.ImaginaryLine:
                     return Colors.LightGray;
                 case ClassificationType.NotModifiedLine:

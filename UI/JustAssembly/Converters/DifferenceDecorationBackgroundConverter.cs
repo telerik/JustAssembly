@@ -16,11 +16,11 @@ namespace JustAssembly.Converters
                 case DifferenceDecoration.NoDifferences:
                     return new SolidColorBrush(Colors.Transparent);
                 case DifferenceDecoration.Modified:
-                    return new SolidColorBrush(Color.FromRgb(240, 240, 255));
+                    return new SolidColorBrush(Configuration.ModifiedColor);
                 case DifferenceDecoration.Deleted:
-                    return new SolidColorBrush(Color.FromRgb(255, 221, 221));
+                    return new SolidColorBrush(Configuration.DeletedColor);
                 case DifferenceDecoration.Added:
-                    return new SolidColorBrush(Color.FromRgb(221, 255, 221));
+                    return new SolidColorBrush(Configuration.AddedColor);
                 default:
                     throw new ArgumentOutOfRangeException("value");
             }
