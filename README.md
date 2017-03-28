@@ -2,14 +2,6 @@
 
 JustAssembly is a lightweight .NET assembly diff and analysis tool built on top of the [Telerik JustDecompile Engine](https://github.com/telerik/JustDecompileEngine). As opposed to just comparing signatures, it produces a diff on all assembly contents including the code of the methods.
 
-Copyright (c) 2011 - 2016 Telerik AD
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
 ##Download Binaries
 
 You can download the latest binary version from the [Telerik website](http://www.telerik.com/justassembly).
@@ -43,3 +35,7 @@ For roadmap and milestones, check the [Issues](https://github.com/telerik/JustAs
 If you find a bug or want to suggest a feature, please use the [Issues](https://github.com/telerik/JustAssembly/issues) section.
 
 For feedback and discussions, please visit the [Telerik Forums](http://www.telerik.com/forums/justassembly).
+
+## License
+
+Licensed under the Apache License, Version 2.0. Please refer to [LICENSE.md](LICENSE.md) for more information.
