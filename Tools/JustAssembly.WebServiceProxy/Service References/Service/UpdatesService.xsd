@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Net" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Net" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Cookie">
+    <xs:sequence>
+      <xs:element name="IsQuotedDomain" type="xs:boolean" />
+      <xs:element name="IsQuotedVersion" type="xs:boolean" />
+      <xs:element name="m_comment" nillable="true" type="xs:string" />
+      <xs:element name="m_commentUri" nillable="true" type="xs:anyURI" />
+      <xs:element name="m_cookieVariant" type="tns:CookieVariant" />
+      <xs:element name="m_discard" type="xs:boolean" />
+      <xs:element name="m_domain" nillable="true" type="xs:string" />
+      <xs:element name="m_domainKey" nillable="true" type="xs:string" />
+      <xs:element name="m_domain_implicit" type="xs:boolean" />
+      <xs:element name="m_expires" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="m_httpOnly" type="xs:boolean" />
+      <xs:element name="m_name" nillable="true" type="xs:string" />
+      <xs:element name="m_path" nillable="true" type="xs:string" />
+      <xs:element name="m_path_implicit" type="xs:boolean" />
+      <xs:element name="m_port" nillable="true" type="xs:string" />
+      <xs:element name="m_port_implicit" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="m_port_list" nillable="true" type="q1:ArrayOfint" />
+      <xs:element name="m_secure" type="xs:boolean" />
+      <xs:element name="m_timeStamp" type="xs:dateTime" />
+      <xs:element name="m_value" nillable="true" type="xs:string" />
+      <xs:element name="m_version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cookie" nillable="true" type="tns:Cookie" />
+  <xs:simpleType name="CookieVariant">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Plain" />
+      <xs:enumeration value="Rfc2109" />
+      <xs:enumeration value="Rfc2965" />
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CookieVariant" nillable="true" type="tns:CookieVariant" />
+</xs:schema>

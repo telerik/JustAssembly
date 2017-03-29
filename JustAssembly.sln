@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F9550310-3D00-4134-9155-2C56F58EF1DB}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Decompiler", "Decompiler", "{AF3A2728-8649-4971-88D2-1D12090DD594}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{80435433-1C6C-4744-BDFA-62CA071DDB63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.WebServiceProxy", "Tools\JustAssembly.WebServiceProxy\JustAssembly.WebServiceProxy.csproj", "{18241A42-ADB4-459F-9000-8A7E69890CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +140,12 @@ Global
 		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
 		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
 		{63E6915C-7EA4-4D76-AB28-0D7191EEA626}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
+		{18241A42-ADB4-459F-9000-8A7E69890CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18241A42-ADB4-459F-9000-8A7E69890CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18241A42-ADB4-459F-9000-8A7E69890CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18241A42-ADB4-459F-9000-8A7E69890CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18241A42-ADB4-459F-9000-8A7E69890CB4}.Telerik Release Build|Any CPU.ActiveCfg = Release|Any CPU
+		{18241A42-ADB4-459F-9000-8A7E69890CB4}.Telerik Release Build|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,5 +168,6 @@ Global
 		{12B3366B-5EC3-4E5C-8C98-DB4AF17818C0} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
 		{AF3A2728-8649-4971-88D2-1D12090DD594} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
 		{80435433-1C6C-4744-BDFA-62CA071DDB63} = {9E8BF823-5ED0-42C9-B662-2207FE0A1D87}
+		{18241A42-ADB4-459F-9000-8A7E69890CB4} = {0366A1B6-2A66-41CA-A2C6-79F27ABD4B91}
 	EndGlobalSection
 EndGlobal

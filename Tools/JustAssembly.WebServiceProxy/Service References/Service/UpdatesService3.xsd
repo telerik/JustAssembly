@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Data.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Data.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BannerEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DownloadUri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BannerEntity" nillable="true" type="tns:BannerEntity" />
+</xs:schema>

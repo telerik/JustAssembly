@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Net" />
+  <xs:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Telerik.WebSite.DataContracts" />
+  <xs:complexType name="UserCredentials">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SenderMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserTelerikAccount" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserCredentials" nillable="true" type="tns:UserCredentials" />
+  <xs:complexType name="VersionInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Net" minOccurs="0" name="AuthenticationCookie" nillable="true" type="q1:Cookie" />
+      <xs:element minOccurs="0" name="DownloadUrl" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Telerik.WebSite.DataContracts" minOccurs="0" name="FileType" type="q2:FileType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VersionInfo" nillable="true" type="tns:VersionInfo" />
+  <xs:complexType name="ArrayOfPluginConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PluginConfig" nillable="true" type="tns:PluginConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPluginConfig" nillable="true" type="tns:ArrayOfPluginConfig" />
+  <xs:complexType name="PluginConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DownloadUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Licenses" nillable="true" type="tns:ArrayOfPluginConfigLicense" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupportedJDversion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PluginConfig" nillable="true" type="tns:PluginConfig" />
+  <xs:complexType name="ArrayOfPluginConfigLicense">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PluginConfigLicense" nillable="true" type="tns:PluginConfigLicense" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPluginConfigLicense" nillable="true" type="tns:ArrayOfPluginConfigLicense" />
+  <xs:complexType name="PluginConfigLicense">
+    <xs:sequence>
+      <xs:element name="titleField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PluginConfigLicense" nillable="true" type="tns:PluginConfigLicense" />
+</xs:schema>

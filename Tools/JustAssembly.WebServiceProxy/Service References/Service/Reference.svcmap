@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3de9fc96-1c02-4baf-851a-6ee1c5d60516" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UpdatesService.disco" MetadataType="Disco" ID="923b1bdc-595e-4741-a357-3763d4dfaf39" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?disco" />
+    <MetadataFile FileName="UpdatesService.wsdl" MetadataType="Wsdl" ID="863f0ca2-288a-441c-9510-5126d06eb1f1" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?wsdl" />
+    <MetadataFile FileName="UpdatesService.xsd" MetadataType="Schema" ID="c9bf090c-53d9-4ac2-a739-a9c8064719e0" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UpdatesService1.xsd" MetadataType="Schema" ID="3772dc00-fb5f-462e-9cfa-4525d471b701" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UpdatesService2.xsd" MetadataType="Schema" ID="1929f52f-9b2b-4947-9541-6e50701f44f9" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd8" />
+    <MetadataFile FileName="UpdatesService3.xsd" MetadataType="Schema" ID="e26ed785-2626-4738-a58a-4bde468a8fc4" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd7" />
+    <MetadataFile FileName="UpdatesService4.xsd" MetadataType="Schema" ID="a2067fbc-18bc-4772-a5e3-437b6543b79b" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UpdatesService5.xsd" MetadataType="Schema" ID="b34e4a4a-6ef3-44e4-8090-01b28abc8e43" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd5" />
+    <MetadataFile FileName="UpdatesService6.xsd" MetadataType="Schema" ID="b4c46824-22fd-4212-80e6-7d198c9923c3" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UpdatesService7.xsd" MetadataType="Schema" ID="81d10f40-9cfd-466e-bad7-625c16362e24" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UpdatesService8.xsd" MetadataType="Schema" ID="91ed144d-7ad6-4712-82d6-0652f0bbc956" SourceId="1" SourceUrl="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

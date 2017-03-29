@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UpdatesService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Entities" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Net" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Telerik.WebSite.DataContracts" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Data.Entities" />
+      <xsd:import schemaLocation="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Banner" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUpdatesService_CheckForLatestVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckForLatestVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_CheckForLatestVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckForLatestVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_CheckForLatestOrInternalVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckForLatestOrInternalVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_CheckForLatestOrInternalVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckForLatestOrInternalVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestToolVersions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestToolVersions" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestToolVersions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestToolVersionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestOrInternalToolVersions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestOrInternalToolVersions" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestOrInternalToolVersions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestOrInternalToolVersionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestVersionUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestVersionUrl" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestVersionUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestVersionUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetAvailablePlugins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailablePlugins" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetAvailablePlugins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailablePluginsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestCampaign" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetLatestCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetBannersConfigsPerVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannersConfigsPerVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetBannersConfigsPerVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannersConfigsPerVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetBannerBytesByVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannerBytesByVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_GetBannerBytesByVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannerBytesByVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_ShouldShowDefaultBanners_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShouldShowDefaultBanners" />
+  </wsdl:message>
+  <wsdl:message name="IUpdatesService_ShouldShowDefaultBanners_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShouldShowDefaultBannersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUpdatesService">
+    <wsdl:operation name="CheckForLatestVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/CheckForLatestVersion" message="tns:IUpdatesService_CheckForLatestVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/CheckForLatestVersionResponse" message="tns:IUpdatesService_CheckForLatestVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckForLatestOrInternalVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/CheckForLatestOrInternalVersion" message="tns:IUpdatesService_CheckForLatestOrInternalVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/CheckForLatestOrInternalVersionResponse" message="tns:IUpdatesService_CheckForLatestOrInternalVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestToolVersions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestToolVersions" message="tns:IUpdatesService_GetLatestToolVersions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestToolVersionsResponse" message="tns:IUpdatesService_GetLatestToolVersions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestOrInternalToolVersions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestOrInternalToolVersions" message="tns:IUpdatesService_GetLatestOrInternalToolVersions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestOrInternalToolVersionsResponse" message="tns:IUpdatesService_GetLatestOrInternalToolVersions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestVersionUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestVersionUrl" message="tns:IUpdatesService_GetLatestVersionUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestVersionUrlResponse" message="tns:IUpdatesService_GetLatestVersionUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePlugins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetAvailablePlugins" message="tns:IUpdatesService_GetAvailablePlugins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetAvailablePluginsResponse" message="tns:IUpdatesService_GetAvailablePlugins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestCampaign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestCampaign" message="tns:IUpdatesService_GetLatestCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetLatestCampaignResponse" message="tns:IUpdatesService_GetLatestCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannersConfigsPerVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetBannersConfigsPerVersion" message="tns:IUpdatesService_GetBannersConfigsPerVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetBannersConfigsPerVersionResponse" message="tns:IUpdatesService_GetBannersConfigsPerVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerBytesByVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/GetBannerBytesByVersion" message="tns:IUpdatesService_GetBannerBytesByVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/GetBannerBytesByVersionResponse" message="tns:IUpdatesService_GetBannerBytesByVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShouldShowDefaultBanners">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUpdatesService/ShouldShowDefaultBanners" message="tns:IUpdatesService_ShouldShowDefaultBanners_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUpdatesService/ShouldShowDefaultBannersResponse" message="tns:IUpdatesService_ShouldShowDefaultBanners_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUpdatesService" type="tns:IUpdatesService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckForLatestVersion">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/CheckForLatestVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForLatestOrInternalVersion">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/CheckForLatestOrInternalVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestToolVersions">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetLatestToolVersions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestOrInternalToolVersions">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetLatestOrInternalToolVersions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestVersionUrl">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetLatestVersionUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePlugins">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetAvailablePlugins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestCampaign">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetLatestCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannersConfigsPerVersion">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetBannersConfigsPerVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerBytesByVersion">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/GetBannerBytesByVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShouldShowDefaultBanners">
+      <soap:operation soapAction="http://tempuri.org/IUpdatesService/ShouldShowDefaultBanners" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdatesService">
+    <wsdl:port name="BasicHttpBinding_IUpdatesService" binding="tns:BasicHttpBinding_IUpdatesService">
+      <soap:address location="http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
