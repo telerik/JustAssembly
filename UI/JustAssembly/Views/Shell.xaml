@@ -69,17 +69,19 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                
-                <Menu Grid.Column="0">
+
+                <Menu Background="Transparent"
+                      VerticalAlignment="Center">
                     <MenuItem Command="{Binding OpenNewSessionCommand}">
                         <MenuItem.Icon>
                             <Image Width="16"
-                               Height="16"
-                               Margin="2 0 0 0"
-                               Source="pack://application:,,,/JustAssembly;component/Images/Common/open.png" />
+                                   Height="16"
+                                   Source="pack://application:,,,/JustAssembly;component/Images/Common/open.png" />
                         </MenuItem.Icon>
                         <MenuItem.Header>
-                            <TextBlock Margin="-5 0 0 0" Text="Open" />
+                            <TextBlock Margin="-5 0 0 0"
+                                       Text="Open"
+                                       VerticalAlignment="Center"/>
                         </MenuItem.Header>
                     </MenuItem>
                 </Menu>
@@ -88,6 +90,7 @@
                                      HolderId="1"
                                      Width="234px"
                                      Height="30px"
+                                     Margin="0 2 0 2"
                                      HorizontalAlignment="Right" />
             </Grid>
             
