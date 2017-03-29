@@ -19,6 +19,24 @@ namespace JustAssembly
             get { return Path.Combine(Path.GetTempPath(), AppDirectoryName); }
         }
 
+        public static string JustAssemblyAppDataFolder
+        {
+            get
+            {
+                string userRoamingHomeDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string justAssemblyFolder = Path.Combine(userRoamingHomeDir, AppDirectoryName);
+                EnsureDirectoryExists(justAssemblyFolder);
+
+                return justAssemblyFolder;
+            }
+            
+        }
+
+        public static void ShowExceptionMessage(Exception exception)
+        {
+            ShowExceptionMessage(new ReadOnlyCollection<Exception>(new[] { exception }));
+        }
+
         public static void ShowExceptionMessage(ReadOnlyCollection<Exception> readOnlyCollection)
         {
             var exceptionStringBuilder = new StringBuilder(readOnlyCollection.Count * 3);
@@ -35,5 +53,13 @@ namespace JustAssembly
         public readonly static Color AddedColor = Color.FromRgb(221, 255, 221);
         public readonly static Color DeletedColor = Color.FromRgb(255, 221, 221);
         public readonly static Color ModifiedColor = Color.FromRgb(240, 240, 255);
+
+        private static void EnsureDirectoryExists(string directoryName)
+        {
+            if (!Directory.Exists(directoryName))
+            {
+                Directory.CreateDirectory(directoryName);
+            }
+        }
     }
 }

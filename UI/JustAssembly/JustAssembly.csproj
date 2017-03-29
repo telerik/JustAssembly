@@ -71,6 +71,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,6 +97,10 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Banners\Banner.cs" />
+    <Compile Include="Banners\BannerGenerator.cs" />
+    <Compile Include="Banners\BannerImage.cs" />
+    <Compile Include="Banners\BannerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DifferenceDecorationBackgroundConverter.cs" />
@@ -255,6 +261,10 @@
       <Project>{529ed979-2760-4808-b609-1cbe6506fb97}</Project>
       <Name>JustAssembly.DiffAlgorithm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Tools\JustAssembly.WebServiceProxy\JustAssembly.WebServiceProxy.csproj">
+      <Project>{18241a42-adb4-459f-9000-8a7e69890cb4}</Project>
+      <Name>JustAssembly.WebServiceProxy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\JustDecompileEngine\Cecil.Decompiler\JustDecompiler.csproj">
       <Project>{ed1be103-1699-4116-a732-616beb142eb2}</Project>
       <Name>JustDecompiler</Name>
@@ -302,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\TreeView\Resources.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DevCraftBanner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

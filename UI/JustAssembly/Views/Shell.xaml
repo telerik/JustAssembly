@@ -7,6 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:infrastructure="clr-namespace:JustAssembly.Infrastructure"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:banners="clr-namespace:JustAssembly.Banners"
         Title="Telerik JustAssembly"
         Width="1400"
         Height="800"
@@ -63,20 +64,33 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Menu Grid.Row="0">
-                <MenuItem Command="{Binding OpenNewSessionCommand}">
-                    <MenuItem.Icon>
-                        <Image Width="16"
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Menu Grid.Column="0">
+                    <MenuItem Command="{Binding OpenNewSessionCommand}">
+                        <MenuItem.Icon>
+                            <Image Width="16"
                                Height="16"
                                Margin="2 0 0 0"
                                Source="pack://application:,,,/JustAssembly;component/Images/Common/open.png" />
-                    </MenuItem.Icon>
-                    <MenuItem.Header>
-                        <TextBlock Margin="-5 0 0 0" Text="Open" />
-                    </MenuItem.Header>
-                </MenuItem>
-            </Menu>
+                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            <TextBlock Margin="-5 0 0 0" Text="Open" />
+                        </MenuItem.Header>
+                    </MenuItem>
+                </Menu>
 
+                <banners:BannerImage Grid.Column="1"
+                                     HolderId="1"
+                                     Width="234px"
+                                     Height="30px"
+                                     HorizontalAlignment="Right" />
+            </Grid>
+            
             <dragablz:TabablzControl Grid.Row="1"
                                      ItemsSource="{Binding Tabs}"
                                      HeaderMemberPath="Header"
