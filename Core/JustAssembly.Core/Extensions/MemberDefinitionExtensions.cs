@@ -18,8 +18,17 @@ namespace JustAssembly.Core.Extensions
                 Decompiler.GetMemberName(assemblyFilePath, module.MetadataToken.ToUInt32(), declaringType.MetadataToken.ToUInt32(), self.MetadataToken.ToUInt32(), SupportedLanguage.CSharp);
 
             int index = nameWithType.IndexOf(Separator);
-            name = nameWithType.Substring(0, index);
-            type = nameWithType.Substring(index + Separator.Length);
+            if (index == -1)
+            {
+                // The member is constructor, hense it has no type.
+                name = nameWithType;
+                type = null;
+            }
+            else
+            {
+                name = nameWithType.Substring(0, index);
+                type = nameWithType.Substring(index + Separator.Length);
+            }
         }
     }
 }

@@ -22,8 +22,8 @@
         </DeclarationDiffs>
         <Method Name="set" DiffType="Deleted" />
       </Property>
-      <Method Name=".ctor(Double)" DiffType="New" />
-      <Method Name=".ctor(Int32)" DiffType="Deleted" />
+      <Method Name="TestClass(Double)" DiffType="New" />
+      <Method Name="TestClass(Int32)" DiffType="Deleted" />
       <Method Name="SomeMethod(Double)" DiffType="Modified">
         <DeclarationDiffs>
           <DiffItem DiffType="Modified">Method changed to non-virtual.</DiffItem>
