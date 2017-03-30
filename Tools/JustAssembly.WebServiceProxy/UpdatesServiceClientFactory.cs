@@ -9,7 +9,7 @@ namespace JustAssembly.WebServiceProxy
 {
     public static class UpdatesServiceClientFactory
     {
-        private const string WebServiceAddress = "http://justdecompile.telerik.com/AutoUpdatesService/UpdatesService.svc";
+        private const string WebServiceAddress = "http://justdecompile.telerik.com/JustAssembly/UpdatesService.svc";
 
         public static IUpdatesService CreateNew()
         {
