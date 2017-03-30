@@ -1,4 +1,4 @@
-#JustAssembly
+# JustAssembly
 
 JustAssembly is a lightweight .NET assembly diff and analysis tool built on top of the [Telerik JustDecompile Engine](https://github.com/telerik/JustDecompileEngine). As opposed to just comparing signatures, it produces a diff on all assembly contents including the code of the methods.
 
@@ -10,23 +10,23 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-##Download Binaries
+## Download Binaries
 
 You can download the latest binary version from the [Telerik website](http://www.telerik.com/justassembly).
 
-##How to Contribute
+## How to Contribute
 
-###Before starting work on a feature or a fix, please:
+### Before starting work on a feature or a fix, please:
 
 * Add a new issue in the [Issues](https://github.com/telerik/JustAssembly/issues) section or find an existing issue describing the problem.
 * Let us know thru the issue comments that you are working on a particular issue so that we can change its status to "In Progress," alert the rest of the community and avoid duplicating efforts.
 * If choosing between more than one issues, please, start working on the one with the higher priority.
 
-###Before submitting a pull request:
+### Before submitting a pull request:
 
 Read and sign the [Contributors License Agreement](https://docs.google.com/a/telerik.com/forms/d/1NHkl8cWYOU4kwiyBZi0o745mMbNk7Y-esYmBgCEMakM/viewform)
 
-###Merging pull requests
+### Merging pull requests
 
 We'll do our best to merge pull requests within a day or two, especially if they are major. Once the merge is done, it takes 1-3 days to create a new binary and post it on the [Telerik website](http://www.telerik.com/justassembly).
 
