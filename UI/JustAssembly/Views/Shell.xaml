@@ -8,7 +8,7 @@
         xmlns:infrastructure="clr-namespace:JustAssembly.Infrastructure"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         xmlns:banners="clr-namespace:JustAssembly.Banners"
-        Title="Telerik JustAssembly"
+        Title="JustAssembly"
         Width="1400"
         Height="800"
         MinWidth="630"
