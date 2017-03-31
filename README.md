@@ -2,7 +2,7 @@
 
 JustAssembly is a lightweight .NET assembly diff and analysis tool built on top of the [Telerik JustDecompile Engine](https://github.com/telerik/JustDecompileEngine). As opposed to just comparing signatures, it produces a diff on all assembly contents including the code of the methods.
 
-Copyright (c) 2011 - 2016 Telerik AD
+Copyright (c) 2011 - 2017 Telerik AD
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
