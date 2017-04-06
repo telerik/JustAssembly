@@ -15,8 +15,8 @@ namespace JustAssembly.Banners
 {
     public class BannerService
     {
-        private const string DefaultBanner1ImagePath = @"pack://application:,,,/images/DevCraftBanner.png";
-        private const string DefaultBanner1Link = "http://www.telerik.com/devcraft?utm_medium=product&utm_source=justdecompile&utm_campaign=dt-devcraft-trial-2&utm_content=234x30";
+        private const string DefaultBanner1ImagePath = @"pack://application:,,,/images/DefaultBanner.png";
+        private const string DefaultBanner1Link = "http://www.telerik.com/products/wpf/overview.aspx?utm_medium=placement&utm_source=justassembly&utm_campaign=dt-devcraft-desktopui-product-oct16&utm_content=banner-wpf";
 
         private static BannerService instance;
 

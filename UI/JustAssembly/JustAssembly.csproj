@@ -315,7 +315,7 @@
     <Resource Include="Images\TreeView\Resources.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\DevCraftBanner.png" />
+    <Resource Include="Images\DefaultBanner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
