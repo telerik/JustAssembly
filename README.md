@@ -40,6 +40,4 @@ For roadmap and milestones, check the [Issues](https://github.com/telerik/JustAs
 
 ## Feedback and Suggestions about JustAssembly
 
-If you find a bug or want to suggest a feature, please use the [Issues](https://github.com/telerik/JustAssembly/issues) section.
-
-For feedback and discussions, please visit the [Telerik Forums](http://www.telerik.com/forums/justassembly).
+If you find a bug, want to suggest a feature or discuss existing ones, please use the [Issues](https://github.com/telerik/JustAssembly/issues) section.
