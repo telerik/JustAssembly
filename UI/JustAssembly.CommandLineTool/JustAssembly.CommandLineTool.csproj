@@ -7,11 +7,12 @@
     <ProjectGuid>{C6D6187D-CB83-40A1-A3F6-20FB9231D67B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JustAssemblyCommandLineTool</RootNamespace>
-    <AssemblyName>JustAssemblyCommandLineTool</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>JustAssembly.CommandLineTool</RootNamespace>
+    <AssemblyName>JustAssembly.CommandLineTool</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,10 +48,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\JustAssembly.Core\JustAssembly.Core.csproj">
+    <ProjectReference Include="..\..\Core\JustAssembly.Core\JustAssembly.Core.csproj">
       <Project>{C83612CD-AD42-4655-98A1-336CE7A65012}</Project>
       <Name>JustAssembly.Core</Name>
     </ProjectReference>

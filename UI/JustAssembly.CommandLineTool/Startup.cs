@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace JustAssemblyCommandLineTool
+namespace JustAssembly.CommandLineTool
 {
     public class Startup
     {

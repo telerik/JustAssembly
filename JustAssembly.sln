@@ -49,7 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{80435433
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.WebServiceProxy", "Tools\JustAssembly.WebServiceProxy\JustAssembly.WebServiceProxy.csproj", "{18241A42-ADB4-459F-9000-8A7E69890CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssemblyCommandLineTool", "JustAssemblyCommandLineTool\JustAssemblyCommandLineTool.csproj", "{C6D6187D-CB83-40A1-A3F6-20FB9231D67B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.CommandLineTool", "UI\JustAssembly.CommandLineTool\JustAssembly.CommandLineTool.csproj", "{C6D6187D-CB83-40A1-A3F6-20FB9231D67B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
