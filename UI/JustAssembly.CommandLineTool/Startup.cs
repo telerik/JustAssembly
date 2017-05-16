@@ -8,44 +8,75 @@ namespace JustAssembly.CommandLineTool
     {
         static void Main(string[] args)
         {
-            string firstArg = args[0];
-            string secondArg = args[1];
-
-            string[] partsOfFirstArg = firstArg.Split(new char[] { '.' });
-            string firstFileExtension = partsOfFirstArg[partsOfFirstArg.Length - 1];
-
-            if (firstFileExtension == "exe" || firstFileExtension == "dll")
+            if (args.Length != 3)
             {
-                string[] partsOfSecondArg = secondArg.Split(new char[] { '.' });
-                string secondFileExtension = partsOfSecondArg[partsOfSecondArg.Length - 1];
-                if (secondFileExtension == "exe" || secondFileExtension == "dll")
-                {
-                    IDiffItem diffItem = APIDiffHelper.GetAPIDifferences(firstArg, secondArg);
-                    string diff = diffItem == null ? string.Empty : diffItem.ToXml();
+                WriteErrorAndSetErrorCode("Exactly 3 arguments are needed - 2 file paths for input files and 1 file path for output xml file.");
+                return;
+            }
 
-                    string xmlDiffPath = firstArg + "-" + secondArg + ".xml";
-                    try
-                    {
-                        using (StreamWriter writer = new StreamWriter(xmlDiffPath))
-                        {
-                            writer.Write(diff);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("There was problem while write to xml");
-                        Console.WriteLine(ex.InnerException);
-                    }
-                }
-                else
+            if (!FilePathValidater.ValidateInputFile(args[0]))
+            {
+                WriteErrorAndSetErrorCode("First file path is in incorrect format or file not found.");
+                return;
+            }
+
+            if (!FilePathValidater.ValidateInputFile(args[1]))
+            {
+                WriteErrorAndSetErrorCode("Second file path is in incorrect format or file not found.");
+                return;
+            }
+
+            if (!FilePathValidater.ValidateOutputFile(args[2]))
+            {
+                WriteErrorAndSetErrorCode("Output file path is in incorrect format.");
+                return;
+            }
+
+            string xml = string.Empty;
+            try
+            {
+                IDiffItem diffItem = APIDiffHelper.GetAPIDifferences(args[0], args[1]);
+                if (diffItem != null)
                 {
-                    Console.WriteLine("Invalid file extension for second file");
+                    xml = diffItem.ToXml();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Invalid file extension of first file");
+                WriteExceptionAndSetErrorCode("There was a problem during calculation of API differences.", ex);
+                return;
             }
+            
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(args[2]))
+                {
+                    writer.Write(xml);
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteExceptionAndSetErrorCode("There was a problem while writing output file.", ex);
+                return;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("API differences calculated successfully.");
+            Console.ResetColor();
+        }
+
+        private static void WriteErrorAndSetErrorCode(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+
+            Environment.ExitCode = 1;
+        }
+
+        private static void WriteExceptionAndSetErrorCode(string message, Exception ex)
+        {
+            WriteErrorAndSetErrorCode(string.Format("{0}{1}{2}", message, Environment.NewLine, ex));
         }
     }
 }
