@@ -1,54 +1,23 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Threading;
 using JustAssembly.MergeUtilities;
-using ICSharpCode.TreeView;
-using System.IO;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using JustAssembly.API.Analytics;
 using JustAssembly.Infrastructure.Analytics;
 
 namespace JustAssembly
 {
     public partial class App : Application
     {
-        [Import]
-        private IAnalyticsService analyticsService;
-
         public App()
         {
-            ImportAnalyticsService();
+            Configuration.Analytics = AnalyticsServiceImporter.Instance.Import();
             
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
 
             AssemblyHelper.ErrorReadingAssembly += OnErrorReadingAssembly;
         }
-
-        private void ImportAnalyticsService()
-        {
-            try
-            {
-                AggregateCatalog catalog = new AggregateCatalog();
-                catalog.Catalogs.Add(new AssemblyCatalog(Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "JustAssembly.Analytics.dll")));
-
-                CompositionContainer container = new CompositionContainer(catalog);
-                container.ComposeParts(this);
-            }
-            catch (Exception) { }
-
-            if (analyticsService != null)
-            {
-                Configuration.Analytics = analyticsService;
-            }
-            else
-            {
-                Configuration.Analytics = new EmptyAnalyticsService();
-            }
-        }
-
+        
         private void OnErrorReadingAssembly(object sender, ErrorAssemblyReadingEventArgs e)
         {
             if (e.NotSupportedAssemblyPaths.Count == 0)

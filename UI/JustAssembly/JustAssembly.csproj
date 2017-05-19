@@ -107,10 +107,6 @@
     <Compile Include="Converters\DifferenceDecorationBackgroundConverter.cs" />
     <Compile Include="Converters\ReverseBooleanConverter.cs" />
     <Compile Include="Extensions\CodeViewerExtensions.cs" />
-    <Compile Include="Infrastructure\Analytics\EmptyAnalyticsMonitorCapabilities.cs" />
-    <Compile Include="Infrastructure\Analytics\EmptyAnalyticsMonitorStatus.cs" />
-    <Compile Include="Infrastructure\Analytics\EmptyAnalyticsService.cs" />
-    <Compile Include="Infrastructure\Analytics\EmptyTimingScope.cs" />
     <Compile Include="Infrastructure\AssemblyDifferences.cs" />
     <Compile Include="Infrastructure\CodeViewer\CodeViewer.cs" />
     <Compile Include="Infrastructure\CodeViewer\DiffBackgroundRenderer.cs" />
@@ -289,6 +285,10 @@
     <ProjectReference Include="..\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
       <Project>{6c55b776-26d4-4db3-a6ab-87e783b2f3d1}</Project>
       <Name>ICSharpCode.AvalonEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JustAssembly.Infrastructure\JustAssembly.Infrastructure.csproj">
+      <Project>{5f05c639-2a66-4411-ab69-5f7dc2c55faa}</Project>
+      <Name>JustAssembly.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\JustAssembly.SelectorControl\JustAssembly.SelectorControl.csproj">
       <Project>{4498e5b1-75c7-41cd-85d5-05bb6764f37f}</Project>

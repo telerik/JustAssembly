@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,7 +59,18 @@
     <Compile Include="..\..\CompanyAssemblyInfo.cs">
       <Link>Properties\CompanyAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Analytics\AnalyticsServiceImporter.cs" />
+    <Compile Include="Analytics\EmptyAnalyticsMonitorCapabilities.cs" />
+    <Compile Include="Analytics\EmptyAnalyticsMonitorStatus.cs" />
+    <Compile Include="Analytics\EmptyAnalyticsService.cs" />
+    <Compile Include="Analytics\EmptyTimingScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tools\JustAssembly.API\JustAssembly.API.csproj">
+      <Project>{fe0ac2d6-6a79-43a0-95d7-0522d25e8199}</Project>
+      <Name>JustAssembly.API</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
