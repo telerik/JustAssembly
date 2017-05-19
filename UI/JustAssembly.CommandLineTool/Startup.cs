@@ -36,7 +36,7 @@ namespace JustAssembly.CommandLineTool
         {
             if (args.Length != 3)
             {
-                WriteErrorAndSetErrorCode("Wrong number of arguments." + Environment.NewLine + Environment.NewLine + "Sample:" + Environment.NewLine + "justassembly.commandlinetoool Path\\To\\Assembly1 Path\\To\\Assembly2 Path\\To\\XMLOutput");
+                WriteErrorAndSetErrorCode("Wrong number of arguments." + Environment.NewLine + Environment.NewLine + "Sample:" + Environment.NewLine + "justassembly.commandlinetool Path\\To\\Assembly1 Path\\To\\Assembly2 Path\\To\\XMLOutput");
                 return;
             }
 
