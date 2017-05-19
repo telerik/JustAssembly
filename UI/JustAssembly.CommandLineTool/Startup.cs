@@ -10,19 +10,19 @@ namespace JustAssembly.CommandLineTool
         {
             if (args.Length != 3)
             {
-                WriteErrorAndSetErrorCode("Exactly 3 arguments are needed - 2 file paths for input files and 1 file path for output xml file.");
+                WriteErrorAndSetErrorCode("Wrong number of arguments." + Environment.NewLine + Environment.NewLine + "Sample:"+ Environment.NewLine + "justassembly.commandlinetoool Path\\To\\Assembly1 Path\\To\\Assembly2 Path\\To\\XMLOutput");
                 return;
             }
 
             if (!FilePathValidater.ValidateInputFile(args[0]))
             {
-                WriteErrorAndSetErrorCode("First file path is in incorrect format or file not found.");
+                WriteErrorAndSetErrorCode("First assembly path is in incorrect format or file not found.");
                 return;
             }
 
             if (!FilePathValidater.ValidateInputFile(args[1]))
             {
-                WriteErrorAndSetErrorCode("Second file path is in incorrect format or file not found.");
+                WriteErrorAndSetErrorCode("Second assembly path is in incorrect format or file not found.");
                 return;
             }
 
@@ -43,7 +43,7 @@ namespace JustAssembly.CommandLineTool
             }
             catch (Exception ex)
             {
-                WriteExceptionAndSetErrorCode("There was a problem during calculation of API differences.", ex);
+                WriteExceptionAndSetErrorCode("A problem occurred while creating the API diff.", ex);
                 return;
             }
             
