@@ -79,6 +79,14 @@
       <Project>{C83612CD-AD42-4655-98A1-336CE7A65012}</Project>
       <Name>JustAssembly.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Tools\JustAssembly.API\JustAssembly.API.csproj">
+      <Project>{fe0ac2d6-6a79-43a0-95d7-0522d25e8199}</Project>
+      <Name>JustAssembly.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JustAssembly.Infrastructure\JustAssembly.Infrastructure.csproj">
+      <Project>{5f05c639-2a66-4411-ab69-5f7dc2c55faa}</Project>
+      <Name>JustAssembly.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

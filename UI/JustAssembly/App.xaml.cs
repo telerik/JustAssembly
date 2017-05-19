@@ -42,6 +42,7 @@ namespace JustAssembly
             base.OnStartup(e);
             
             Configuration.Analytics.Start();
+            Configuration.Analytics.TrackFeature("Mode.UI");
             
             this.OnShellRun();
         }
