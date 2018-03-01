@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.CommandLineToo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustAssembly.Infrastructure", "UI\JustAssembly.Infrastructure\JustAssembly.Infrastructure.csproj", "{5F05C639-2A66-4411-AB69-5F7DC2C55FAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemInformationHelpers", "JustDecompileEngine\SystemInformationHelpers\SystemInformationHelpers.csproj", "{CED63F54-9464-4CC0-9F3F-D42014C85AC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,6 +164,12 @@ Global
 		{5F05C639-2A66-4411-AB69-5F7DC2C55FAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F05C639-2A66-4411-AB69-5F7DC2C55FAA}.Telerik Release Build|Any CPU.ActiveCfg = Telerik Release Build|Any CPU
 		{5F05C639-2A66-4411-AB69-5F7DC2C55FAA}.Telerik Release Build|Any CPU.Build.0 = Telerik Release Build|Any CPU
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6}.Debug|Any CPU.ActiveCfg = Debug JustAssembly|Any CPU
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6}.Debug|Any CPU.Build.0 = Debug JustAssembly|Any CPU
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6}.Release|Any CPU.ActiveCfg = Release JustAssembly|Any CPU
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6}.Release|Any CPU.Build.0 = Release JustAssembly|Any CPU
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6}.Telerik Release Build|Any CPU.ActiveCfg = Release Server JustAssembly|Any CPU
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6}.Telerik Release Build|Any CPU.Build.0 = Release Server JustAssembly|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -187,5 +195,6 @@ Global
 		{18241A42-ADB4-459F-9000-8A7E69890CB4} = {0366A1B6-2A66-41CA-A2C6-79F27ABD4B91}
 		{C6D6187D-CB83-40A1-A3F6-20FB9231D67B} = {F9550310-3D00-4134-9155-2C56F58EF1DB}
 		{5F05C639-2A66-4411-AB69-5F7DC2C55FAA} = {F9550310-3D00-4134-9155-2C56F58EF1DB}
+		{CED63F54-9464-4CC0-9F3F-D42014C85AC6} = {80435433-1C6C-4744-BDFA-62CA071DDB63}
 	EndGlobalSection
 EndGlobal

@@ -14,6 +14,7 @@ using JustDecompile.External.JustAssembly;
 using ICSharpCode.TreeView;
 using Mono.Cecil;
 using JustDecompile.EngineInfrastructure;
+using Mono.Cecil.AssemblyResolver;
 
 namespace JustAssembly.Nodes
 {
@@ -334,7 +335,7 @@ namespace JustAssembly.Nodes
                 AssemblyDefinition assemblyDefinition = GlobalAssemblyResolver.Instance.GetAssemblyDefinition(filePath);
                 if (assemblyDefinition != null)
                 {
-                    AssemblyInfo assemblyInfo = NoCacheAssemblyInfoService.Instance.GetAssemblyInfo(assemblyDefinition, EmptyResolver.Instance);
+                    AssemblyInfo assemblyInfo = NoCacheAssemblyInfoService.Instance.GetAssemblyInfo(assemblyDefinition, EmptyResolver.Instance, TargetPlatformResolver.Instance);
                     Configuration.Analytics.TrackFeature("LoadedAssemblyFrameworkVersion." + assemblyInfo.ModulesFrameworkVersions[assemblyDefinition.MainModule].ToString());
                     Configuration.Analytics.TrackFeature("LoadedAssemblyType." + assemblyInfo.AssemblyTypes.ToString().Replace(", ", "_"));
                 }
