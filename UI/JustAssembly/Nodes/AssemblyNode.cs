@@ -335,7 +335,7 @@ namespace JustAssembly.Nodes
                 AssemblyDefinition assemblyDefinition = GlobalAssemblyResolver.Instance.GetAssemblyDefinition(filePath);
                 if (assemblyDefinition != null)
                 {
-                    AssemblyInfo assemblyInfo = NoCacheAssemblyInfoService.Instance.GetAssemblyInfo(assemblyDefinition, EmptyResolver.Instance, TargetPlatformResolver.Instance);
+                    AssemblyInfo assemblyInfo = NoCacheAssemblyInfoService.Instance.GetAssemblyInfo(assemblyDefinition, EmptyResolver.Instance);
                     Configuration.Analytics.TrackFeature("LoadedAssemblyFrameworkVersion." + assemblyInfo.ModulesFrameworkVersions[assemblyDefinition.MainModule].ToString());
                     Configuration.Analytics.TrackFeature("LoadedAssemblyType." + assemblyInfo.AssemblyTypes.ToString().Replace(", ", "_"));
                 }
