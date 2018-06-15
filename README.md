@@ -4,7 +4,9 @@ JustAssembly is a lightweight .NET assembly diff and analysis tool built on top 
 
 ![alt text](https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/justassembly/how-it-works.png)
 
-Copyright (c) 2011 - 2017 Telerik AD
+## License
+
+Copyright (c) 2011 - 2018 Telerik EAD
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
