@@ -1,20 +1,22 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
-using JustAssembly.Interfaces;
-using JustAssembly.MergeUtilities;
-using JustAssembly.Nodes.APIDiff;
-using JustDecompile.External.JustAssembly;
+
 using ICSharpCode.TreeView;
 using Mono.Cecil;
 using JustDecompile.EngineInfrastructure;
-using Mono.Cecil.AssemblyResolver;
+using JustDecompile.Tools.MSBuildProjectBuilder;
+using JustDecompile.External.JustAssembly;
+
+using JustAssembly.Interfaces;
+using JustAssembly.MergeUtilities;
+using JustAssembly.Nodes.APIDiff;
+using JustAssembly.Dialogs.DangerousResource;
 
 namespace JustAssembly.Nodes
 {
@@ -148,10 +150,15 @@ namespace JustAssembly.Nodes
 					{
 						progressNotifier.LoadingMessage = string.Format("Loading assembly {0} of {1}", assemblyNumber, assemblyCount);
 
-						IAssemblyDecompilationResults r1 = Decompiler.GenerateFiles(TypesMap.OldType,
+                        AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
+                        bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.OldType, AssemblyType.Old);
+
+                        IAssemblyDecompilationResults r1 = Decompiler.GenerateFiles(TypesMap.OldType,
+																						  assembly,
 																						  GenerationProjectInfoMap.OldType.OutputPath,
 																						  SupportedLanguage.CSharp,
 																						  cancellationToken,
+                                                                                          shouldDecompileDangerousResources,
 																						  progressNotifier);
 
 						cancellationToken.ThrowIfCancellationRequested();
@@ -167,10 +174,15 @@ namespace JustAssembly.Nodes
 						progressNotifier.LoadingMessage = string.Format("Loading assembly {0} of {1}", assemblyNumber, assemblyCount);
 						progressNotifier.Progress = 0;
 
-						IAssemblyDecompilationResults r2 = Decompiler.GenerateFiles(TypesMap.NewType,
+                        AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
+                        bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.NewType, AssemblyType.New);
+
+                        IAssemblyDecompilationResults r2 = Decompiler.GenerateFiles(TypesMap.NewType,
+                                                                                          assembly,
 																						  GenerationProjectInfoMap.NewType.OutputPath,
 																						  SupportedLanguage.CSharp,
 																						  cancellationToken,
+                                                                                          shouldDecompileDangerousResources,
 																						  progressNotifier);
 
 						cancellationToken.ThrowIfCancellationRequested();
@@ -250,6 +262,36 @@ namespace JustAssembly.Nodes
                 assemblyHelper.AddNotSupportedFiles(TypesMap.NewType);
             }
             return isOldInvalid || isNewInvalid;
+        }
+
+        private bool ShouldDecompileDangerousResources(AssemblyDefinition assembly, string assemblyPath, AssemblyType assemblyType)
+        {
+            try
+            {
+                Dictionary<ModuleDefinition, Mono.Collections.Generic.Collection<Resource>> assemblyResources = Utilities.GetResources(assembly);
+
+                bool containsDangerousResources = assemblyResources.SelectMany(rc => rc.Value)
+                                                                   .Any(resource => DangerousResourceIdentifier.IsDangerousResource(resource));
+
+                bool decompileDangerousResources = false;
+                if (containsDangerousResources)
+                {
+                    DispatcherObjectExt.Invoke(() =>
+                    {
+                        DangerousResourceDialog dialog = new DangerousResourceDialogWithAnalyticsTracking(Path.GetFileName(assemblyPath), assemblyType);
+                        if (dialog.Show() == DangerousResourceDialogResult.Yes)
+                        {
+                            decompileDangerousResources = true;
+                        }
+                    });
+                }
+
+                return decompileDangerousResources;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private List<SharpTreeNode> GetMergedModules(bool shouldBeExpanded)
