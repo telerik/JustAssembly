@@ -102,6 +102,8 @@
     <Compile Include="Banners\BannerGenerator.cs" />
     <Compile Include="Banners\BannerImage.cs" />
     <Compile Include="Banners\BannerService.cs" />
+    <Compile Include="Dialogs\DangerousResource\DangerousResourceDialog.cs" />
+    <Compile Include="Dialogs\DangerousResource\DangerousResourceDialogResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DifferenceDecorationBackgroundConverter.cs" />
@@ -257,6 +259,10 @@
     <ProjectReference Include="..\..\Core\JustAssembly.DiffAlgorithm\JustAssembly.DiffAlgorithm.csproj">
       <Project>{529ed979-2760-4808-b609-1cbe6506fb97}</Project>
       <Name>JustAssembly.DiffAlgorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JustDecompileEngine\MSBuildProjectCreator\Tools.MSBuildProjectBuilder.csproj">
+      <Project>{f7bbb403-7142-4f8d-8e65-5aba94502d3d}</Project>
+      <Name>Tools.MSBuildProjectBuilder</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Tools\JustAssembly.WebServiceProxy\JustAssembly.WebServiceProxy.csproj">
       <Project>{18241a42-adb4-459f-9000-8a7e69890cb4}</Project>
