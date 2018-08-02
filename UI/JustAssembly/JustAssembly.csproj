@@ -102,6 +102,7 @@
     <Compile Include="Banners\BannerGenerator.cs" />
     <Compile Include="Banners\BannerImage.cs" />
     <Compile Include="Banners\BannerService.cs" />
+    <Compile Include="Dialogs\DangerousResource\AssemblyType.cs" />
     <Compile Include="Dialogs\DangerousResource\DangerousResourceDialog.cs" />
     <Compile Include="Dialogs\DangerousResource\DangerousResourceDialogResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

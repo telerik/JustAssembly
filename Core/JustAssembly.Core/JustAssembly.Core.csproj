@@ -58,7 +58,6 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="APIDiffHelper.cs" />
-    <Compile Include="AssemblyType.cs" />
     <Compile Include="Comparers\Accessors\AddAccessorComparer.cs" />
     <Compile Include="Comparers\Accessors\GetAccessorComparer.cs" />
     <Compile Include="Comparers\Accessors\RemoveAccessorComparer.cs" />

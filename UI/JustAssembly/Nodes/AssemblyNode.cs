@@ -6,18 +6,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+
+using ICSharpCode.TreeView;
+using Mono.Cecil;
+
 using JustAssembly.Interfaces;
 using JustAssembly.MergeUtilities;
 using JustAssembly.Nodes.APIDiff;
 using JustAssembly.Dialogs.DangerousResource;
-
 using JustDecompile.EngineInfrastructure;
 using JustDecompile.Tools.MSBuildProjectBuilder;
 using JustDecompile.External.JustAssembly;
-
-using ICSharpCode.TreeView;
-using Mono.Cecil;
-using JustAssembly.Core;
 
 namespace JustAssembly.Nodes
 {
@@ -154,8 +153,6 @@ namespace JustAssembly.Nodes
                         AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
                         bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.OldType, AssemblyType.Old);
 
-                        this.TrackDangerousResourceDecompilationUserChoice(shouldDecompileDangerousResources);
-
                         IAssemblyDecompilationResults r1 = Decompiler.GenerateFiles(TypesMap.OldType,
 																						  assembly,
 																						  GenerationProjectInfoMap.OldType.OutputPath,
@@ -179,8 +176,6 @@ namespace JustAssembly.Nodes
 
                         AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
                         bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.NewType, AssemblyType.New);
-
-                        this.TrackDangerousResourceDecompilationUserChoice(shouldDecompileDangerousResources);
 
                         IAssemblyDecompilationResults r2 = Decompiler.GenerateFiles(TypesMap.NewType,
                                                                                           assembly,
@@ -297,14 +292,6 @@ namespace JustAssembly.Nodes
             {
                 return false;
             }
-        }
-
-        private void TrackDangerousResourceDecompilationUserChoice(bool dangerousResourceDialogResult)
-        {
-            string decompileDangerousResources = dangerousResourceDialogResult ? "Yes" : "No";
-            string featureToReport = "DangerousResourcesDecompilationDialogResult" + '.' + decompileDangerousResources;
-
-            Configuration.Analytics.TrackFeature(featureToReport);
         }
 
         private List<SharpTreeNode> GetMergedModules(bool shouldBeExpanded)

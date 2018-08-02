@@ -18,18 +18,33 @@ namespace JustAssembly.Dialogs.DangerousResource
         {
             string title = "Warning";
             string message = this.GetMessage();
+            DangerousResourceDialogResult dialogResult;
+
             MessageBoxResult result = MessageBox.Show(Application.Current.MainWindow, message, title, MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
-                return DangerousResourceDialogResult.Yes;
+                dialogResult = DangerousResourceDialogResult.Yes;
             }
+            else
+            {
+                dialogResult = DangerousResourceDialogResult.No;
+            }
+            
+            this.TrackDangerousResourceDecompilationUserChoice(dialogResult);
 
-            return DangerousResourceDialogResult.No;
+            return dialogResult;
         }
 
         private string GetMessage()
         {
-            return $"\"{this.assemblyFileName}\" [{this.assemblyType}] contains resources that may contain malicious code. Decompilation of such resources will result in execution of that malicious code. Do you want to decompile those resources and use them for the assembly comparison?";
+            return $"\"{this.assemblyFileName}\" [{this.assemblyType.ToString()}] contains resources that may contain malicious code. Decompilation of such resources will result in execution of that malicious code. Do you want to decompile those resources and use them for the assembly comparison?";
+        }
+
+        private void TrackDangerousResourceDecompilationUserChoice(DangerousResourceDialogResult dialogResult)
+        {
+            string featureToReport = "DangerousResourcesDecompilationDialogResult" + '.' + dialogResult.ToString();
+
+            Configuration.Analytics.TrackFeature(featureToReport);
         }
     }
 }

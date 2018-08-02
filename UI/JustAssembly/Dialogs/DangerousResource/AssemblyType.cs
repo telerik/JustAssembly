@@ -1,4 +1,4 @@
-﻿namespace JustAssembly.Core
+﻿namespace JustAssembly.Dialogs.DangerousResource
 {
     public enum AssemblyType
     {
