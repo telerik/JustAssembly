@@ -5,7 +5,7 @@ namespace JustAssembly.Dialogs.DangerousResource
 {
     internal class DangerousResourceDialog
     {
-        private readonly string fileName;
+        private readonly string assemblyFileName;
         private readonly AssemblyType assemblyType;
 
         public DangerousResourceDialog(string assemblyFileName, AssemblyType assemblyType)

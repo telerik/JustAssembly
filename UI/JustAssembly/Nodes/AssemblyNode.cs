@@ -152,48 +152,50 @@ namespace JustAssembly.Nodes
 						progressNotifier.LoadingMessage = string.Format("Loading assembly {0} of {1}", assemblyNumber, assemblyCount);
 
                         AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
-
                         bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.OldType, AssemblyType.Old);
 
+                        this.TrackDangerousResourceDecompilationUserChoice(shouldDecompileDangerousResources);
+
                         IAssemblyDecompilationResults r1 = Decompiler.GenerateFiles(TypesMap.OldType,
-                                                                                      assembly,
-                                                                                      GenerationProjectInfoMap.OldType.OutputPath,
-                                                                                      SupportedLanguage.CSharp,
-                                                                                      cancellationToken,
-                                                                                      shouldDecompileDangerousResources,
-                                                                                      progressNotifier);
+																						  assembly,
+																						  GenerationProjectInfoMap.OldType.OutputPath,
+																						  SupportedLanguage.CSharp,
+																						  cancellationToken,
+                                                                                          shouldDecompileDangerousResources,
+																						  progressNotifier);
 
-                        cancellationToken.ThrowIfCancellationRequested();
+						cancellationToken.ThrowIfCancellationRequested();
 
-                        GlobalDecompilationResultsRepository.Instance.AddDecompilationResult(TypesMap.OldType, r1);
+						GlobalDecompilationResultsRepository.Instance.AddDecompilationResult(TypesMap.OldType, r1);
 
                         TrackFrameworkVersionAndAssemblyType(TypesMap.OldType);
 
-                        assemblyNumber++;
-                    }
+						assemblyNumber++;
+					}
 					if (TypesMap.NewType != null && !GlobalDecompilationResultsRepository.Instance.ContainsAssembly(TypesMap.NewType))
 					{
 						progressNotifier.LoadingMessage = string.Format("Loading assembly {0} of {1}", assemblyNumber, assemblyCount);
 						progressNotifier.Progress = 0;
 
                         AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
-
                         bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.NewType, AssemblyType.New);
 
-                        IAssemblyDecompilationResults r2 = Decompiler.GenerateFiles(TypesMap.NewType,
-                                                                                      assembly,
-                                                                                      GenerationProjectInfoMap.NewType.OutputPath,
-                                                                                      SupportedLanguage.CSharp,
-                                                                                      cancellationToken,
-                                                                                      shouldDecompileDangerousResources,
-                                                                                      progressNotifier);
+                        this.TrackDangerousResourceDecompilationUserChoice(shouldDecompileDangerousResources);
 
-                        cancellationToken.ThrowIfCancellationRequested();
+                        IAssemblyDecompilationResults r2 = Decompiler.GenerateFiles(TypesMap.NewType,
+                                                                                          assembly,
+																						  GenerationProjectInfoMap.NewType.OutputPath,
+																						  SupportedLanguage.CSharp,
+																						  cancellationToken,
+                                                                                          shouldDecompileDangerousResources,
+																						  progressNotifier);
+
+						cancellationToken.ThrowIfCancellationRequested();
 
                         GlobalDecompilationResultsRepository.Instance.AddDecompilationResult(TypesMap.NewType, r2);
 
                         TrackFrameworkVersionAndAssemblyType(TypesMap.NewType);
-                    }
+					}
 					List<SharpTreeNode> moduleNodes = this.GetMergedModules(true).ToList();
 
 					this.differenceDecoration = this.GetDifferenceDecoration(moduleNodes);
@@ -295,6 +297,14 @@ namespace JustAssembly.Nodes
             {
                 return false;
             }
+        }
+
+        private void TrackDangerousResourceDecompilationUserChoice(bool dangerousResourceDialogResult)
+        {
+            string decompileDangerousResources = dangerousResourceDialogResult ? "Yes" : "No";
+            string featureToReport = "DangerousResourcesDecompilationDialogResult" + '.' + decompileDangerousResources;
+
+            Configuration.Analytics.TrackFeature(featureToReport);
         }
 
         private List<SharpTreeNode> GetMergedModules(bool shouldBeExpanded)
