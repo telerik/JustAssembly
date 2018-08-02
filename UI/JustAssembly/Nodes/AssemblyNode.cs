@@ -9,14 +9,14 @@ using System.Windows.Threading;
 
 using ICSharpCode.TreeView;
 using Mono.Cecil;
+using JustDecompile.EngineInfrastructure;
+using JustDecompile.Tools.MSBuildProjectBuilder;
+using JustDecompile.External.JustAssembly;
 
 using JustAssembly.Interfaces;
 using JustAssembly.MergeUtilities;
 using JustAssembly.Nodes.APIDiff;
 using JustAssembly.Dialogs.DangerousResource;
-using JustDecompile.EngineInfrastructure;
-using JustDecompile.Tools.MSBuildProjectBuilder;
-using JustDecompile.External.JustAssembly;
 
 namespace JustAssembly.Nodes
 {

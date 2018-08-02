@@ -1,6 +1,6 @@
 ﻿namespace JustAssembly.Dialogs.DangerousResource
 {
-    public enum AssemblyType
+    internal enum AssemblyType
     {
         Old,
         New
