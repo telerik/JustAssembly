@@ -278,7 +278,7 @@ namespace JustAssembly.Nodes
                 {
                     DispatcherObjectExt.Invoke(() =>
                     {
-                        DangerousResourceDialog dialog = new DangerousResourceDialog(Path.GetFileName(assemblyPath), assemblyType);
+                        DangerousResourceDialog dialog = new DangerousResourceDialogWithAnalyticsTracking(Path.GetFileName(assemblyPath), assemblyType);
                         if (dialog.Show() == DangerousResourceDialogResult.Yes)
                         {
                             decompileDangerousResources = true;
