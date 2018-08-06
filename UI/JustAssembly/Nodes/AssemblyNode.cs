@@ -150,7 +150,7 @@ namespace JustAssembly.Nodes
 					{
 						progressNotifier.LoadingMessage = string.Format("Loading assembly {0} of {1}", assemblyNumber, assemblyCount);
 
-                        AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.NewType, new ReaderParameters(GlobalAssemblyResolver.Instance));
+                        AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(TypesMap.OldType, new ReaderParameters(GlobalAssemblyResolver.Instance));
                         bool shouldDecompileDangerousResources = this.ShouldDecompileDangerousResources(assembly, TypesMap.OldType, AssemblyType.Old);
 
                         IAssemblyDecompilationResults r1 = Decompiler.GenerateFiles(TypesMap.OldType,
