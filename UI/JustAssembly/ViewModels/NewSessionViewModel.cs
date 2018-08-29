@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using JustAssembly.Interfaces;
 using Microsoft.Practices.Prism.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace JustAssembly.ViewModels
 {
@@ -10,12 +11,12 @@ namespace JustAssembly.ViewModels
     {
         private IComparisonSessionModel selectedSession;
 
-        public NewSessionViewModel()
+        public NewSessionViewModel(string[] args)
         {
             this.Tabs = new ObservableCollection<IComparisonSessionModel>
             {
-                new AssembliesComparisonViewModel(),
-                new FolderComparisonViewModel()
+                new AssembliesComparisonViewModel(args),
+                new FolderComparisonViewModel(args)
             };
             this.SelectedSession = Tabs[0];
         }

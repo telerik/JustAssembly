@@ -6,8 +6,8 @@ namespace JustAssembly.ViewModels
 {
     class AssembliesComparisonViewModel : ComparisonSessionViewModelBase
     {
-        public AssembliesComparisonViewModel()
-            : base("Compare Assemblies")
+        public AssembliesComparisonViewModel(string[] args)
+            : base("Compare Assemblies", args)
         {
         }
 

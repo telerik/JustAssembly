@@ -13,8 +13,14 @@ namespace JustAssembly.ViewModels
 
         public ICommand SwapPathsCommand { get; private set; }
 
-        public ComparisonSessionViewModelBase(string header)
+        public ComparisonSessionViewModelBase(string header, string[] args)
         {
+            if (args != null && args.Length == 2)
+            {
+                oldPath = args[0];
+                newPath = args[1];
+            }
+
             this.SwapPathsCommand = new DelegateCommand(OnSwapPathsCommandExecuted);
 
             this.Header = header;
