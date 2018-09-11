@@ -11,12 +11,12 @@ namespace JustAssembly.ViewModels
     {
         private IComparisonSessionModel selectedSession;
 
-        public NewSessionViewModel(string[] args)
+        public NewSessionViewModel()
         {
             this.Tabs = new ObservableCollection<IComparisonSessionModel>
             {
-                new AssembliesComparisonViewModel(args),
-                new FolderComparisonViewModel(args)
+                new AssembliesComparisonViewModel(),
+                new FolderComparisonViewModel()
             };
             this.SelectedSession = Tabs[0];
         }

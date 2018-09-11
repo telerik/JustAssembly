@@ -6,8 +6,8 @@ namespace JustAssembly.ViewModels
 {
     class FolderComparisonViewModel : ComparisonSessionViewModelBase
     {
-        public FolderComparisonViewModel(string[] args)
-            : base("Compare Folders", args)
+        public FolderComparisonViewModel()
+            : base("Compare Folders")
         {
         }
 

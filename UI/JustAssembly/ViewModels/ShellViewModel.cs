@@ -19,7 +19,7 @@ namespace JustAssembly.ViewModels
     {
         private int selectedTabIndex;
         private DelegateCommand<ITabSourceItem> closeAllButThisCommand;
-        private string[] _args;
+        private readonly string[] args;        
 
         public ShellViewModel()
         {
@@ -41,7 +41,7 @@ namespace JustAssembly.ViewModels
 
         public ShellViewModel(string[] args) : this()
         {
-            _args = args;
+            this.args = args;
         }
 
         public ICommand OpenNewSessionCommand { get; private set; }
@@ -83,10 +83,7 @@ namespace JustAssembly.ViewModels
 
         public void OpenNewSessionCommandExecuted()
         {
-            NewSessionViewModel newSessionViewModel = new NewSessionViewModel(_args);
-
-            if (!CommandLineArgumentsAreValidToSkipNewSessionDialog(_args, showErrorMessageBoxIfPresentButInvalid: true))
-            {
+            NewSessionViewModel newSessionViewModel = new NewSessionViewModel();
             var newSessionDialog = new NewSessionDialog { DataContext = newSessionViewModel };
 
             if (newSessionDialog.ShowDialog() == true)
@@ -96,13 +93,21 @@ namespace JustAssembly.ViewModels
                 this.OnLoadCommandExecuted(newSessionViewModel.SelectedSession);
             }
         }
+
+
+        public void OpenNewSessionWithCmdLineArgsCommandExecuted()
+        {
+            if (!CommandLineArgumentsAreValidToSkipNewSessionDialog(this.args, showErrorMessageBoxIfPresentButInvalid: true))
+            {
+                OpenNewSessionCommandExecuted();
+            }
             else
             {
-                Configuration.Analytics.TrackFeature("DiffSessionType.CommandLine." + newSessionViewModel.SelectedSession.SelectedItemType.ToString());
-                OnLoadCommandExecuted(newSessionViewModel.SelectedSession);
+                AssembliesComparisonViewModel newAssembliesComparisonViewModel = new AssembliesComparisonViewModel(args);
+                Configuration.Analytics.TrackFeature("CommandLineParameters.NewFileSessionFiles");
+                this.OnLoadCommandExecuted(newAssembliesComparisonViewModel);
             }
         }
-
 
         private static bool CommandLineArgumentsAreValidToSkipNewSessionDialog(string[] args, bool showErrorMessageBoxIfPresentButInvalid = false)
         {
@@ -126,6 +131,7 @@ namespace JustAssembly.ViewModels
 
             if (!isValid && showErrorMessageBoxIfPresentButInvalid)
             {
+                Configuration.Analytics.TrackFeature("CommandLineParameters.InvalidArgsDialogShown");
                 ToolWindow.ShowDialog(
                     new ErrorMessageWindow(
                         $"Invalid path arguments.\nPath1: \"{left ?? "NULL"}\"\nPath2: \"{right ?? "NULL"}\"",

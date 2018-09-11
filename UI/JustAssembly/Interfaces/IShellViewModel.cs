@@ -5,5 +5,8 @@ namespace JustAssembly.ViewModels
         void CancelCurrentOperation();
 
         void OpenNewSessionCommandExecuted();
+
+        void OpenNewSessionWithCmdLineArgsCommandExecuted();
+
     }
 }

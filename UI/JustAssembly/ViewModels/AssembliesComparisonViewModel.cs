@@ -7,7 +7,17 @@ namespace JustAssembly.ViewModels
     class AssembliesComparisonViewModel : ComparisonSessionViewModelBase
     {
         public AssembliesComparisonViewModel(string[] args)
-            : base("Compare Assemblies", args)
+            : base("Compare Assemblies")
+        {
+            if (args != null && args.Length == 2)
+            {
+                OldType = args[0];
+                NewType = args[1];
+            }
+        }
+
+        public AssembliesComparisonViewModel()
+            : base("Compare Assemblies")
         {
         }
 

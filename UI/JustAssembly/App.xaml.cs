@@ -9,7 +9,7 @@ namespace JustAssembly
 {
     public partial class App : Application
     {
-        private string[] _args;
+        private string[] args;
 
         public App()
         {
@@ -41,7 +41,7 @@ namespace JustAssembly
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _args = e.Args;
+            args = e.Args;
             base.OnStartup(e);
             
             Configuration.Analytics.Start();
@@ -59,7 +59,7 @@ namespace JustAssembly
 
         private void OnShellRun()
         {
-            var bootstrapper = new JustAssemblyBootstrapper(_args);
+            var bootstrapper = new JustAssemblyBootstrapper(args);
 
             bootstrapper.Run();
         }
