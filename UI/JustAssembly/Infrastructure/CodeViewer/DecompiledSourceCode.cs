@@ -64,6 +64,14 @@ namespace JustAssembly.Infrastructure.CodeViewer
             }
         }
 
+        public string AssemblyPath
+        {
+            get
+            {
+                return memberMetadata?.AssemblyPath;
+            }
+        }
+
         public override string ToString()
         {
             return sourceCode;
