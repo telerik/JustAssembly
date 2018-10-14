@@ -227,36 +227,40 @@
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
 
-                                                <localViews:CodeViewer Grid.Column="1"
-                                                                             SyntaxHighlighting="C#"
-                                                                             IsReadOnly="True"
-                                                                             SourceCode="{Binding LeftSourceCode}"
-                                                                             BackgroundRenderer="{Binding LeftSourceCode.BackgroundRenderer}"
-                                                                             ShowLineNumbers="True"
-                                                                             VerticalOffset="{Binding VerticalOffset, Mode=TwoWay}"
-                                                                             VerticalScrollBarVisibility="Hidden"
-                                                                             HorizontalOffsetPercent="{Binding HorizontalOffsetPercent, Mode=TwoWay}"
-                                                                             VisibleLines ="{Binding VisibleLines, Mode=TwoWay}"
-                                                                             ScrollingLimit="{Binding ScrollingLimit, Mode=TwoWay}"
-                                                                             FontSize="{Binding FontSize, Mode=TwoWay}" />
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="{Binding LeftSourceCode.AssemblyPath}" Background="#EFEFEF" Margin="15,5,0,0" FontStyle="Italic"/>
+                                                    <localViews:CodeViewer SyntaxHighlighting="C#"
+                                                                                 IsReadOnly="True"
+                                                                                 SourceCode="{Binding LeftSourceCode}"
+                                                                                 BackgroundRenderer="{Binding LeftSourceCode.BackgroundRenderer}"
+                                                                                 ShowLineNumbers="True"
+                                                                                 VerticalOffset="{Binding VerticalOffset, Mode=TwoWay}"
+                                                                                 VerticalScrollBarVisibility="Hidden"
+                                                                                 HorizontalOffsetPercent="{Binding HorizontalOffsetPercent, Mode=TwoWay}"
+                                                                                 VisibleLines ="{Binding VisibleLines, Mode=TwoWay}"
+                                                                                 ScrollingLimit="{Binding ScrollingLimit, Mode=TwoWay}"
+                                                                                 FontSize="{Binding FontSize, Mode=TwoWay}" />
+                                                </StackPanel>
 
                                                 <GridSplitter Grid.Column="2"
                                                               Width="6"
                                                               HorizontalAlignment="Center"
                                                               VerticalAlignment="Stretch" />
 
-                                                <localViews:CodeViewer Grid.Column="3"
-                                                                             SyntaxHighlighting="C#"
-                                                                             IsReadOnly="True"
-                                                                             SourceCode="{Binding RightSourceCode}"
-                                                                             BackgroundRenderer="{Binding RightSourceCode.BackgroundRenderer}"
-                                                                             ShowLineNumbers="True"
-                                                                             VerticalOffset="{Binding VerticalOffset, Mode=TwoWay}"
-                                                                             HorizontalOffsetPercent="{Binding HorizontalOffsetPercent, Mode=TwoWay}"
-                                                                             VisibleLines ="{Binding VisibleLines, Mode=TwoWay}"
-                                                                             ScrollingLimit="{Binding ScrollingLimit, Mode=TwoWay}"
-                                                                             FontSize="{Binding FontSize, Mode=TwoWay}" />
+                                                <StackPanel Grid.Column="3">
+                                                    <TextBlock Text="{Binding RightSourceCode.AssemblyPath}"  Background="#EFEFEF" Margin="15,5,0,0" FontStyle="Italic"/>
+                                                    <localViews:CodeViewer SyntaxHighlighting="C#"
+                                                                                 IsReadOnly="True"
+                                                                                 SourceCode="{Binding RightSourceCode}"
+                                                                                 BackgroundRenderer="{Binding RightSourceCode.BackgroundRenderer}"
+                                                                                 ShowLineNumbers="True"
+                                                                                 VerticalOffset="{Binding VerticalOffset, Mode=TwoWay}"
+                                                                                 HorizontalOffsetPercent="{Binding HorizontalOffsetPercent, Mode=TwoWay}"
+                                                                                 VisibleLines ="{Binding VisibleLines, Mode=TwoWay}"
+                                                                                 ScrollingLimit="{Binding ScrollingLimit, Mode=TwoWay}"
+                                                                                 FontSize="{Binding FontSize, Mode=TwoWay}" />
 
+                                                </StackPanel>
                                                 <localViews:SideSummary Grid.Column="0" 
                                                                         LeftSourceCode="{Binding LeftSourceCode}"
                                                                         RightSourceCode="{Binding RightSourceCode}"
