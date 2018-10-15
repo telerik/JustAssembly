@@ -31,7 +31,7 @@ namespace JustAssembly.Interfaces
 
             this.RaisePropertyChanged("JustAssemblyViewModel");
             
-            this.ShowAllUnmodified = true;
+            this.ShowAllUnmodified = false;
         }
 
         public JustAssemblyViewModel JustAssemblyViewModel { get; private set; }
