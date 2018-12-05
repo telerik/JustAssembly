@@ -28,7 +28,7 @@ You can download the latest binary version from the [Telerik website](http://www
 
 ### Before submitting a pull request:
 
-Read and sign the [Contributors License Agreement](https://docs.google.com/a/telerik.com/forms/d/1NHkl8cWYOU4kwiyBZi0o745mMbNk7Y-esYmBgCEMakM/viewform)
+Read and sign the [Contributors License Agreement](https://docs.google.com/forms/d/e/1FAIpQLSc3w8R1GemVK66EI9mXjTet7izmBf1ziPhe4P9CYZN6ZA4Yhg/viewform)
 
 ### Merging pull requests
 
