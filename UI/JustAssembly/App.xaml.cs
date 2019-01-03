@@ -9,6 +9,8 @@ namespace JustAssembly
 {
     public partial class App : Application
     {
+        private string[] args;
+
         public App()
         {
             Configuration.Analytics = AnalyticsServiceImporter.Instance.Import();
@@ -39,6 +41,7 @@ namespace JustAssembly
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            args = e.Args;
             base.OnStartup(e);
             
             Configuration.Analytics.Start();
@@ -56,7 +59,7 @@ namespace JustAssembly
 
         private void OnShellRun()
         {
-            var bootstrapper = new JustAssemblyBootstrapper();
+            var bootstrapper = new JustAssemblyBootstrapper(args);
 
             bootstrapper.Run();
         }

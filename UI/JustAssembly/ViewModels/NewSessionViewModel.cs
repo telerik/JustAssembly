@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using JustAssembly.Interfaces;
 using Microsoft.Practices.Prism.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace JustAssembly.ViewModels
 {

@@ -13,10 +13,13 @@ using Microsoft.Practices.Prism.ViewModel;
 
 namespace JustAssembly.ViewModels
 {
+    using System.IO;
+
     class ShellViewModel : NotificationObject, IShellViewModel
     {
         private int selectedTabIndex;
         private DelegateCommand<ITabSourceItem> closeAllButThisCommand;
+        private readonly string[] args;        
 
         public ShellViewModel()
         {
@@ -34,6 +37,11 @@ namespace JustAssembly.ViewModels
             this.Tabs = new ObservableCollection<ITabSourceItem>();
 
             this.MouseDoubleSelectedCommand = new DelegateCommand<ItemNodeBase>(OnMouseDoubleSelectedCommandExecuted);
+        }
+
+        public ShellViewModel(string[] args) : this()
+        {
+            this.args = args;
         }
 
         public ICommand OpenNewSessionCommand { get; private set; }
@@ -76,7 +84,6 @@ namespace JustAssembly.ViewModels
         public void OpenNewSessionCommandExecuted()
         {
             NewSessionViewModel newSessionViewModel = new NewSessionViewModel();
-
             var newSessionDialog = new NewSessionDialog { DataContext = newSessionViewModel };
 
             if (newSessionDialog.ShowDialog() == true)
@@ -86,6 +93,57 @@ namespace JustAssembly.ViewModels
                 this.OnLoadCommandExecuted(newSessionViewModel.SelectedSession);
             }
         }
+
+
+        public void OpenNewSessionWithCmdLineArgsCommandExecuted()
+        {
+            if (!CommandLineArgumentsAreValidToSkipNewSessionDialog(this.args, showErrorMessageBoxIfPresentButInvalid: true))
+            {
+                OpenNewSessionCommandExecuted();
+            }
+            else
+            {
+                AssembliesComparisonViewModel newAssembliesComparisonViewModel = new AssembliesComparisonViewModel(args);
+                Configuration.Analytics.TrackFeature("CommandLineParameters.NewFileSessionFiles");
+                this.OnLoadCommandExecuted(newAssembliesComparisonViewModel);
+            }
+        }
+
+        private static bool CommandLineArgumentsAreValidToSkipNewSessionDialog(string[] args, bool showErrorMessageBoxIfPresentButInvalid = false)
+        {
+            if (args.Length != 2)
+            {
+                //just return and show no message.
+                return false;
+            }
+
+            var left = args[0];
+            var right = args[1];
+            var isValid = true;
+            if (string.IsNullOrEmpty(left) || string.IsNullOrEmpty(right))
+            {
+                isValid = false;
+            }
+            else if (!File.Exists(left) || !File.Exists(right))
+            {
+                isValid = false;
+            }
+
+            if (!isValid && showErrorMessageBoxIfPresentButInvalid)
+            {
+                Configuration.Analytics.TrackFeature("CommandLineParameters.InvalidArgsDialogShown");
+                ToolWindow.ShowDialog(
+                    new ErrorMessageWindow(
+                        $"Invalid path arguments.\nPath1: \"{left ?? "NULL"}\"\nPath2: \"{right ?? "NULL"}\"",
+                        "Invalid arguments"),
+                    width: 700,
+                    height: 200);
+            }
+
+            return isValid;
+
+        }
+
 
         private void OnLoadCommandExecuted(IComparisonSessionModel newSession)
         {

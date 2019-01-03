@@ -11,9 +11,16 @@ namespace JustAssembly
 {
     public class JustAssemblyBootstrapper : MefBootstrapper
 	{
+        private readonly string[] args;
+
+        public JustAssemblyBootstrapper(string[] args)
+        {
+            this.args = args;
+        }
+
 		protected override DependencyObject CreateShell()
 		{
-            return new Shell(new ShellViewModel());
+            return new Shell(new ShellViewModel(args), args);
 		}
 
 		protected override void InitializeShell()
