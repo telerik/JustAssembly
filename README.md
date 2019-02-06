@@ -4,6 +4,21 @@ JustAssembly is a lightweight .NET assembly diff and analysis tool built on top 
 
 ![alt text](https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/justassembly/how-it-works.png)
 
+## Command line usage
+
+It is possible to use JustAssembly with command line interface, in order to generate an XML file with assembly public API differences.
+
+That effectively makes it possible to use JustAssembly in an automated build pipeline to analyse differences between the output of the previous and the latest build (Semantic Versioning in future release, see issue #14 for details).
+
+*Commandlinetool.exe* accepts three arguments
+1) First assembly path
+2) Second assembly path
+3) XML output path 
+
+```
+justassembly.commandlinetool.exe Path\To\Assembly1 Path\To\Assembly2 Path\To\XMLOutput.xml
+```
+
 ## License
 
 Copyright (c) 2011 - 2018 Telerik EAD
