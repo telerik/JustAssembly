@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace JustAssembly.CommandLineTool
 {
@@ -27,12 +29,7 @@ namespace JustAssembly.CommandLineTool
             }
 
             string extension = Path.GetExtension(filePath);
-            if (!validExtensions.Contains(extension))
-            {
-                return false;
-            }
-
-            return true;
+            return validExtensions.Any(x =>  x.Equals(extension,StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }
