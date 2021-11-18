@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="APIDiff\BaseExistingAPIDiffTestFixture.cs" />
     <Compile Include="APIDiff\ExistingAPIDiffTestFixture.cs" />
+    <Compile Include="FileValidatorTests.cs" />
     <Compile Include="SimpleTestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +71,10 @@
     <ProjectReference Include="..\..\JustDecompileEngine\Mono.Cecil\Mono.Cecil.csproj">
       <Project>{d68133bd-1e63-496e-9ede-4fbdbf77b486}</Project>
       <Name>Mono.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UI\JustAssembly.CommandLineTool\JustAssembly.CommandLineTool.csproj">
+      <Project>{C6D6187D-CB83-40A1-A3F6-20FB9231D67B}</Project>
+      <Name>JustAssembly.CommandLineTool</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
